@@ -143,6 +143,14 @@
   align-items: center;
 }
 
+.recent-thing iframe {
+  cursor: pointer;
+  margin-top: clamp(8rem, 4vw, 14rem);
+  margin-bottom: clamp(8rem, 4vw, 14rem);
+  width: clamp(30rem, 35vw, 70rem);
+  height: calc(clamp(30rem, 35vw, 70rem) * 9 / 16);
+}
+
 .recent-thing a {
   cursor: pointer;
   margin-top: clamp(8rem, 4vw, 14rem);
@@ -225,4 +233,10 @@
   .recent-poems { margin-top: clamp(4rem, 4vw, 14rem); }
 
   .recent-thing a { margin-top: clamp(2rem, 4vw, 14rem); }
+  .recent-thing iframe { 
+    margin-top: clamp(2rem, 4vw, 14rem);
+    margin-bottom: 0;
+    width: clamp(30rem, 45vw, 60rem);
+    height: calc(clamp(30rem, 45vw, 60rem) * 9 / 16);
+  }
 }
