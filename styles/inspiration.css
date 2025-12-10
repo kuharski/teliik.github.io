@@ -1,6 +1,6 @@
 .remark {
-  padding-top: clamp(18rem, 12vw, 16rem);
-  padding-bottom: clamp(10rem, 3vw, 12rem);
+  padding-top: clamp(4rem, 6vw, 18rem);
+  padding-bottom: clamp(4rem, 6vw, 18rem);
   padding-left: 5rem;
   padding-right: 5rem;
   display: flex;
@@ -8,21 +8,34 @@
   align-items: center;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
+  text-align: center;
 }
 
 .remark-text {
   font-size: clamp(4rem,6vw,8rem);
+
 }
 
 .inspo-intro {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: clamp(12rem, 10vw, 24rem);
 }
 
 .intro-container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(5rem, 6vw, 12rem);
+}
+
+.intro-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(18rem, 38vw, 50rem);
+  margin: 2rem auto 0;
 }
 
 .intro-text {
@@ -30,17 +43,70 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-  width: clamp(18rem, 40vw, 45rem);
+  width: clamp(22rem, 55vw, 65rem);
   text-align: justify;
   align-items: center;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 1.5vw, 1.8rem);
+}
+
+.intro-text p {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.intro-text pre {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+  white-space: pre-wrap;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.intro-media pre {
+  align-self: stretch;
+  width: 100%;
+  padding: clamp(1.5rem, 2vw, 3rem);
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, #050505, #1b1f2a);
+  color: var(--main-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.35);
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(1.2rem, 1.4vw, 1.8rem);
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.cipher-meta {
+  align-self: stretch;
+  width: clamp(25rem, 80vw, 80rem);
+  margin-top: clamp(2rem, 2vw, 3rem);
+  margin-bottom: clamp(1rem, 1.5vw, 2rem);
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(1.3rem, 1.4vw, 1.8rem);
+  color: var(--main-text-color);
+  text-align: left;
+}
+
+.cipher-meta div + div {
+  margin-top: 0.4rem;
+}
+
+.terminal-prompt {
+  color: #7fffd4;
+  font-weight: 600;
+  margin-right: 0.6rem;
 }
 
 .montreal {
   object-fit: cover;
   width: clamp(15rem, 50vw, 60rem);
   border-radius: 1rem;
-  margin-right: 8rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -48,7 +114,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: clamp(12rem, 10vw, 24rem);
+  padding-bottom: clamp(4rem, 6vw, 18rem);
 }
 
 .album-book-grid {
@@ -85,29 +151,48 @@
 
 
 @media only screen and (max-width: 1510px) {
-  
-  .remark {
-    padding-top: clamp(14rem, 12vw, 16rem);
-    padding-bottom: clamp(6rem, 3vw, 12rem);
+  .intro-media,
+  .intro-text {
+    width: clamp(25rem, 70vw, 80rem);
+    margin-inline: auto;
   }
 
-  .inspo-intro, .album-book-container {
+  .remark {
+    padding-top: clamp(12rem, 12vw, 16rem);
+    padding-bottom: clamp(3rem, 3vw, 12rem);
+  }
+
+  .album-book-container {
     padding-bottom: clamp(6rem, 3vw, 12rem);
   }
 
   .intro-container {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-media {
+    width: clamp(25rem, 70vw, 80rem);
+    margin-inline: auto;
+    align-items: center;
+  }
+
+  .intro-media pre {
+    align-self: center;
+  }
+
+  .cipher-meta {
+    width: clamp(25rem, 70vw, 80rem);
   }
 
   .montreal {
-    margin-bottom: clamp(6rem, 4vw, 14rem);
+    /* margin-bottom: clamp(6rem, 4vw, 14rem); */
     width: clamp(25rem, 70vw, 80rem);
     margin-right: 0;
   }
 
   .intro-text {
-    width: clamp(25rem, 70vw, 80rem);
-    
+
     font-size: clamp(1.5rem, 2vw, 3rem);
   }
 

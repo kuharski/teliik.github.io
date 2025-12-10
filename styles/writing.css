@@ -168,4 +168,10 @@
   .stories a {
     margin-bottom: clamp(6rem, 6vw, 18rem);
   }
+
+  .preface .intro-media,
+.preface .montreal {
+  width: clamp(30rem, 60vw, 80rem);
+  max-width: 100%;
+}
 }
