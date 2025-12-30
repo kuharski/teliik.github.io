@@ -1,6 +1,6 @@
 function typeWriterEffect() {
 
-  const words = [ "IS A TINY EMBER", "IS A DEEP LAKE", "IS A LOST LETTER", "IS A PORCELAIN PARADISE", "A TIMID WARRIOR", "IS A TREE RING", "IS A WATCHTOWER", "IS A CONFUSED COMET", "IS A DANGLING BRANCH"];
+  const words = [ "water the cold", "stars with tears", "kick till the", "bloody creek clears", "hold tight to", "the winding wave", "all waking", "tadpoles are brave"];
   let wordCount = 0;
   let letterCount = 0;
 
@@ -29,7 +29,7 @@ function typeWriterEffect() {
     timeOut = isDeleting ? 100 : 100;
 
     if(!isDeleting && currentText.length === currentWord.length) {
-      timeOut = 1500;
+      timeOut = 750;
       isDeleting = true;
     } else if(isDeleting && currentText.length === 0) {
       timeOut = 100;
