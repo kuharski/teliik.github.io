@@ -1,5 +1,5 @@
 .remark {
-  padding-top: clamp(4rem, 6vw, 18rem);
+  padding-top: clamp(10rem, 10vw, 16rem);
   padding-bottom: clamp(4rem, 6vw, 18rem);
   padding-left: 5rem;
   padding-right: 5rem;
@@ -12,8 +12,8 @@
 }
 
 .remark-text {
-  font-size: clamp(4rem,6vw,8rem);
-
+  font-size: clamp(4rem,7vw,9rem);
+  text-align: center;
 }
 
 .inspo-intro {

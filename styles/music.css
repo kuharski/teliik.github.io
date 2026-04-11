@@ -1,5 +1,5 @@
 .no-words {
-    padding-top: clamp(18rem, 12vw, 16rem);
+    padding-top: clamp(10rem, 10vw, 16rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,15 +59,15 @@
         padding-top: clamp(12rem, 10vw, 16rem);
     }
 
-    .soundcloud-box {
+    .music-box {
         margin: clamp(4rem, 3vw, 12rem) auto;
     }    
 
 
 }
 
-.soundcloud-box {
-  margin: clamp(8rem, 4vw, 10rem) auto;
+.music-box {
+  margin: clamp(6rem, 6vw, 12rem) auto;
   width: clamp(30rem, 35vw, 50rem);
   border-radius: 1.4rem;
   background-color: #ffffff;
@@ -80,40 +80,4 @@
   align-items: center;
   justify-content: center;
   font-family: inherit;
-}
-
-.soundcloud-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(1.6rem, 2.2vw, 2.8rem) clamp(2rem, 3vw, 3.5rem);
-  width: 100%;
-  height: 100%;
-  gap: 1rem;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: clamp(1.6rem, 2.0vw, 2.6rem);
-  color: #111111;
-  transition: color 0.2s ease;
-  text-decoration: none;
-  letter-spacing: 0.5em;
-}
-
-.soundcloud-icon {
-  font-size: clamp(2rem, 2.6vw, 3rem);
-  color: #111111;
-}
-
-.soundcloud-box:hover {
-  background-color: #ff5500;
-  border-color: #ff5500;
-}
-
-.soundcloud-box:hover .soundcloud-link,
-.soundcloud-box:hover .soundcloud-icon {
-  color: #ffffff;
-}
-.soundcloud-box:active {
-  background-color: #e74c00;
-  border-color: #e74c00;
 }
