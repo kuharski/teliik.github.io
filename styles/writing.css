@@ -1,6 +1,6 @@
 .preface {
   padding-top: clamp(10rem, 10vw, 16rem);
-  padding-bottom: clamp(10rem, 3vw, 12rem);
+  padding-bottom: clamp(6rem, 6vw, 12rem);
   padding-left: 5rem;
   padding-right: 5rem;
   display: flex;
@@ -12,7 +12,6 @@
 }
 
 .preface-text {
-  padding-bottom: clamp(8rem, 4vw, 10rem);
   font-size: clamp(4rem,7vw,9rem);
   align-items: center;
 }
@@ -20,6 +19,11 @@
 .preface-text p {
   text-align: justify;
   font-size: 2.2rem;
+}
+
+.intro-container .intro-media {
+  width: clamp(30rem, 60vw, 80rem);
+  max-width: 100%;
 }
 
 .lines-img {
@@ -37,12 +41,12 @@
   background-color: var(--nav-footer-color);
   align-self: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  margin-bottom: clamp(8rem, 8vw, 16rem);
+  margin-bottom: clamp(5rem, 8vw, 16rem);
   background-color: var(--nav-footer-color);
 }
 
 .poem-card h3 {
-  font-size: 2.4rem;
+  font-size: clamp(1.3rem, 1.9vw, 2.6rem);
   padding: clamp(1rem, 1vw, 6rem);
   padding-top: clamp(2rem, 3vw, 8rem);
   background-color: var(--nav-footer-color);
@@ -53,7 +57,8 @@
   padding-top: 0.5rem;
   padding-bottom: clamp(5rem, 3vw, 10rem);
   text-align: justify;
-  font-size: 2.2rem;
+  font-size: clamp(1.3rem, 1.9vw, 2.6rem);
+  overflow-wrap: break-word;
   border-radius: 4rem;
   background-color: var(--nav-footer-color);
 }
@@ -77,6 +82,13 @@
 .stories a {
   cursor: pointer;
   margin-bottom: clamp(8rem, 6vw, 18rem);
+}
+
+.story-title {
+  color: var(--main-text-color);
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  padding-bottom: clamp(1.5rem, 2vw, 3rem);
 }
 
 .story-img {
@@ -150,10 +162,6 @@
     padding-bottom: clamp(4rem, 3vw, 12rem);
   }
 
-  .preface-text {
-    padding-bottom: clamp(4rem, 3vw, 12rem);
-  }
-
   .poem-card h3 {
     font-size: clamp(1.5rem, 1.9vw, 2.5rem);
   }
@@ -177,12 +185,23 @@
   }
 
   .stories a {
-    margin-bottom: clamp(6rem, 6vw, 18rem);
+    margin-bottom: clamp(5rem, 8vw, 16rem);
   }
 
-  .preface .intro-media,
+  .intro-container .intro-media,
 .preface .montreal {
   width: clamp(30rem, 60vw, 80rem);
   max-width: 100%;
 }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .poem-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .poem-card p {
+    font-size: 1.1rem;
+  }
 }
