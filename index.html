@@ -2,149 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>teliik.net</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <title>T E L i i K</title>
+  <meta name="description" content="Music, stories and poems by Andrew Kuharski, writing as TELiiK.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/seal-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/seal-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/seal-16.png">
   <link rel="manifest" href="/images/site.webmanifest">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#000000">
-  <link rel="shortcut icon" href="/images/favicon.ico">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-config" content="/images/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
-  <script src="https://kit.fontawesome.com/6708aff63b.js" crossorigin="anonymous" defer></script>
-  <script src="scripts/header.js" defer></script>
-  <script src="scripts/footer.js" defer></script>
-  <script src="scripts/typewriter.js" defer></script>
-  <script src="scripts/marquee.js" defer></script>
-  <link rel="stylesheet" href="styles/header.css">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#173F6D">
+  <link rel="shortcut icon" href="/images/seal-32.png">
+  <meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12141A" media="(prefers-color-scheme: dark)">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("teliik-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/index.css">
-  <link rel="stylesheet" href="styles/footer.css">
-  <link rel="stylesheet" href="styles/typewriter.css">
+
+  <script src="scripts/site.js" defer></script>
 </head>
+
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <a href="./" class="nav-logo">
-        <div class="title">
-          <span style="--i:1">T</span>
-          <span style="--i:2">E</span>
-          <span style="--i:3">L</span>
-          <span style="--i:4">i</span>
-          <span style="--i:5">i</span>
-          <span style="--i:6">K</span> 
-        </div>    
-      </a>
-      <ul class="nav-list">
-          <li class="nav-item">
-            <a href="./music" class="nav-link">MUSIC</a>
-          </li>
-          <li class="nav-item">
-              <a href="./writing" class="nav-link">WRITING</a>
-          </li>
-          <li class="nav-item">
-              <a href="./inspiration" class="nav-link">INSPIRATION</a>
-          </li>
-      </ul>
-      <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-      </div>
-    </nav>
+  <header class="nav">
+    <a href="./" class="nav-mark">TELiiK</a>
+    <div class="nav-right">
+      <nav class="nav-links" id="nav-links" aria-label="Main">
+        <a href="./music">Music</a>
+        <a href="./stories">Stories</a>
+        <a href="./poems">Poems</a>
+        <a href="./inspiration">Inspiration</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">
+        <span class="theme-dot" aria-hidden="true"></span>
+        <span class="theme-words" aria-hidden="true"><span class="theme-word theme-word--dark">Dark</span><span class="theme-word theme-word--light">Light</span></span>
+      </button>
+      <button class="nav-burger" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <i></i><i></i>
+      </button>
+    </div>
   </header>
-  <main style="flex-grow: 1;">
-    <section>
-      <div class="homepage">
-        <div class="home-text">
-          <h1 class="title-text">
-            T&ensp;E&ensp;L&ensp;i&ensp;i&ensp;K
-          </h1>
-          <div class="typing-container">
-            <h1 class="typewrite"></h1>
-          </div>
-        </div>
-        <img class="lines-img" src="./images/teliik.png">
-      </div>
-    </section>
-    <section>
-      <div class="recent">
-        <div class="recent-content">
-          <div class="recent-thing">
-            <h2 class="recent-text">
-              BEYOND THE SKY
-            </h2>
-            <iframe
-              src="https://www.youtube.com/embed/NKe9_5n9QjQ?autoplay=1&mute=1&rel=0&modestbranding=1" 
-              title="teliik - Beyond the Sky (official video)" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen>
-            </iframe>
-            <h2 class="recent-text">
-              INDUSTRIAL MELTDOWN
-            </h2>
-            <a href="./inspiration" target="_blank" style=" position: relative; text-align: center; color: var(--main-bg-color);">
-              <img class="story-img" src="./images/industrialmeltdown.png">
-            </a>
-          </div>
-          <div class="recent-thing">
-            <h2 class="recent-text">
-              SONGS
-            </h2>
-            <a href="./music" target="_blank" style=" position: relative; text-align: center; color: var(--main-bg-color);">
-              <img class="story-img" src="./images/Phototropisme.jpg">
-            </a>            
-            <h2 class="recent-text">
-              STORIES
-            </h2>
-            <a href="./japanesecandy.pdf" target="_blank" style=" position: relative; text-align: center; color: var(--main-bg-color);">
-              <img class="story-img" src="./images/japanesecandysquare.jpg">
-            </a>
-          </div>
+
+  <div class="spine" aria-hidden="true"><span>Teliik</span></div>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <h1 class="hero-name">TELiiK</h1>
+        <div class="hero-img" aria-hidden="true"></div>
+        <div class="hero-caption">
+          <hr class="rule draw">
+          <span class="eyebrow">Andrew Kuharski</span>
         </div>
       </div>
-    </section>
-    <section>
-      <div class="recent-poems">
-        <h2 class="recent-text">
-          POEMS
-        </h2>
-        <div class="marquee">
-          <ul class="marquee-content">
-            <li><p>Oh Willow, How I Miss You So</p></li>
-            <li><p>life at sea</p></li>
-          </ul>
+
+      <a class="showcase reveal" href="./stories#landlord">
+        <span class="showcase-marks" aria-hidden="true"></span>
+        <div class="showcase-head">
+          <span class="eyebrow label">Showcase</span>
+          <span class="eyebrow">Short story</span>
         </div>
+        <div class="showcase-media">
+          <img src="./images/landlord.jpg" alt="" loading="lazy">
+        </div>
+        <h2 class="showcase-title">Landlord</h2>
+        <p class="showcase-blurb">
+            A trio of old university friends in Chengdu gather
+            to play the card game Landlord. The card room is
+            filled with banter — but beneath it, one of them 
+            is falling apart.
+          </p>
+        <p class="showcase-cta">
+          <span class="seal" aria-hidden="true"></span>
+          Read the story
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </p>
+      </a>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <h2>Explore</h2>
+        <p class="eyebrow">My works</p>
+      </div>
+      <div class="feature-grid">
+        <a class="feature reveal" href="./music">
+          <div class="feature-media"><img src="./images/Phototropisme.jpg" alt="" loading="lazy"></div>
+          <div class="feature-label">
+            <h3>Music</h3>
+            <span class="eyebrow">Listen</span>
+          </div>
+        </a>
+        <a class="feature reveal" href="./stories">
+          <div class="feature-media"><img src="./images/japanesecandysquare.jpg" alt="" loading="lazy"></div>
+          <div class="feature-label">
+            <h3>Stories</h3>
+            <span class="eyebrow">Read</span>
+          </div>
+        </a>
+        <a class="feature reveal" href="./poems">
+          <div class="feature-media"><img src="./images/industrialmeltdown.png" alt="" loading="lazy"></div>
+          <div class="feature-label">
+            <h3>Poems</h3>
+            <span class="eyebrow">Read</span>
+          </div>
+        </a>
+        <a class="feature reveal" href="https://www.youtube.com/watch?v=NKe9_5n9QjQ" target="_blank" rel="noreferrer">
+          <div class="feature-media"><img src="./images/beyondthesky.png" alt="" loading="lazy"></div>
+          <div class="feature-label">
+            <h3>Beyond the Sky</h3>
+            <span class="eyebrow">Watch</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <h2>Poems</h2>
+        <a class="eyebrow" href="./poems" style="color: var(--link);">All poems &rarr;</a>
+      </div>
+      <div class="index-list">
+        <a class="index-row reveal" href="./poems#tattoos">
+          <span class="index-title">tattoos</span>
+          <span class="index-meta">Jul 2026</span>
+        </a>
+        <a class="index-row reveal" href="./poems#hair">
+          <span class="index-title">hair</span>
+          <span class="index-meta">Jul 2026</span>
+        </a>
+        <a class="index-row reveal" href="./poems#pool-party">
+          <span class="index-title">Pool Party</span>
+          <span class="index-meta">Jun 2026</span>
+        </a>
+        <a class="index-row reveal" href="./poems#oh-willow">
+          <span class="index-title">Oh Willow, How I Miss You So</span>
+          <span class="index-meta">May 2026</span>
+        </a>
+        <a class="index-row reveal" href="./poems#life-at-sea">
+          <span class="index-title">life at sea</span>
+          <span class="index-meta">May 2026</span>
+        </a>
       </div>
     </section>
   </main>
-  <footer>
-    <div class="footer-icons">
-      <a href="https://www.instagram.com/andrewkuharski/" target="_blank" rel="noreferrer">
-        <i class="fa-brands fa-instagram fa-fw" style="color: #000000; transition: 0.3s; font-size: 2.7rem;"></i>
-      </a>
-      <img class="two-footer" src="./images/22FA.png">
-      <a href="https://open.spotify.com/artist/4HuOKZWRAAiEM58F3AivnS?si=sZNmsXobSdCxWiwDuWc8qQ">
-        <i class="fa-brands fa-spotify fa-fw" style="color: #000000; transition: 0.3s; font-size: 2.7rem;"></i>
-      </a>
-    </div>
-    <div class="footer-name">
-      <div class="footer-scroll">
-        <span style="--i:1">T</span>
-        <span style="--i:2">E</span>
-        <span style="--i:3">L</span>
-        <span style="--i:4">i</span>
-        <span style="--i:5">i</span>
-        <span style="--i:6">K</span>
-      </div>
-    </div>
-    <div class="copyright-notice">
-      <p>&#169; 2026 ANDREW KUHARSKI</p>
-    </div>
+
+  <footer class="footer">
+    <button class="footer-mark" type="button" aria-label="Back to top">
+      TELiiK
+    </button>
+    <span class="footer-seal seal" aria-hidden="true"></span>
+    <p class="footer-meta">&copy; 2026 Andrew Kuharski</p>
   </footer>
 </body>
 </html>

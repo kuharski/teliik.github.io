@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Writing — verse gets the whole page. No cards, no containers.
+   ========================================================================== */
+
+.verse { padding-bottom: 0; }
+
+/* Each poem is its own field of space. The separator is emptiness plus a
+   single hairline; the seal closes the poem the way a stamp closes a page. */
+.poem {
+  padding-block: clamp(6rem, 14vh, 16rem);
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: clamp(2.4rem, 5vw, 8rem);
+  align-items: start;
+}
+
+.poem:first-of-type { border-top: 0; padding-top: 0; }
+
+/* index.html links straight to #oh-willow / #life-at-sea — clear the nav */
+.poem { scroll-margin-top: calc(var(--nav-h) + 1.6rem); }
+
+/* left rail: form and shape of the poem — true information, not decoration */
+.poem-rail {
+  position: sticky;
+  top: calc(var(--nav-h) + var(--s-4));
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.poem-rail dt {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.poem-rail dd {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  color: var(--fg-muted);
+  margin-bottom: var(--s-2);
+}
+
+.poem-body { max-width: 56ch; }
+
+.poem-title {
+  font-family: var(--font-display);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(3rem, 5vh, 5.6rem);
+}
+
+/* verse is flush-left and never justified — the line breaks are the poet's */
+.stanza {
+  font-family: var(--font-body);
+  font-size: var(--t-md);
+  font-weight: 400;
+  line-height: 1.95;
+  text-align: left;
+  text-wrap: pretty;
+  color: var(--fg);
+}
+.stanza + .stanza { margin-top: 1.95em; }
+
+.poem-end {
+  margin-top: clamp(3rem, 5vh, 5.6rem);
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.poem-end::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--rule);
+}
+
+/* ==========================================================================
+   short stories — cover, title, and the first line as a pull
+   ========================================================================== */
+
+.stories { padding-block: clamp(6rem, 12vh, 14rem); }
+
+.story-grid {
+  margin-top: var(--s-5);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+  gap: clamp(3rem, 5vw, 6.4rem);
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  color: var(--fg);
+}
+
+.story-media {
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--bg-sunk);
+  aspect-ratio: 3 / 4;
+}
+.story-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  transition: transform 0.8s var(--ease), filter 0.8s var(--ease);
+}
+.story:hover .story-media img,
+.story:focus-visible .story-media img {
+  transform: scale(1.04);
+  filter: grayscale(0) contrast(1);
+}
+
+.story-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2);
+  padding-top: var(--s-1);
+  border-top: 1px solid var(--rule);
+}
+
+.story h3 {
+  font-family: var(--font-display);
+  font-size: var(--t-md);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.story:hover h3 { color: var(--accent); }
+
+.story p {
+  font-size: var(--t-sm);
+  line-height: 1.7;
+  color: var(--fg-muted);
+  max-width: 42ch;
+}
+
+/* ==========================================================================
+   colophon — the encrypted note, kept exactly as it was
+   ========================================================================== */
+
+.colophon {
+  padding-top: clamp(5rem, 10vh, 12rem);
+  padding-bottom: 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: clamp(2.4rem, 5vw, 8rem);
+  align-items: start;
+}
+
+.cipher {
+  max-width: 78ch;
+  font-family: var(--font-mono);
+  font-size: clamp(1.1rem, 0.9vw, 1.4rem);
+  line-height: 2;
+  color: var(--fg-muted);
+  background: var(--bg-sunk);
+  border: 1px solid var(--rule-soft);
+  border-left: 2px solid var(--accent);
+  border-radius: 2px;
+  padding: clamp(2rem, 3vw, 3.2rem);
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.cipher .prompt { color: var(--accent); user-select: none; }
+
+/* Verse must not wrap: a wrapped line reads as a line the poet never wrote.
+   Below this width the type steps down so the longest lines still fit. */
+@media (max-width: 620px) {
+  .stanza { font-size: 1.65rem; line-height: 1.85; }
+  .poem-title { font-size: clamp(2.8rem, 8vw, 4rem); }
+}
+
+/* on a phone the poems stack, so the field of space between them becomes
+   scrolling rather than breathing room */
+@media (max-width: 700px) {
+  .verse { padding-bottom: 0; }
+  .poem { padding-block: clamp(3.5rem, 6vh, 6rem); }
+  .stories { padding-block: clamp(3.5rem, 6vh, 6rem); }
+  .colophon { padding-top: clamp(3.5rem, 6vh, 6rem); padding-bottom: 0; }
+  .poem-title { margin-bottom: clamp(2rem, 3.5vh, 3.2rem); }
+  .poem-end { margin-top: clamp(2rem, 3.5vh, 3.2rem); }
+  .story-grid { margin-top: var(--s-3); gap: clamp(3rem, 5vh, 4.4rem); }
+}
+
+@media (max-width: 900px) {
+  .poem,
+  .colophon { grid-template-columns: 1fr; }
+
+  .poem-rail {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-1) var(--s-3);
+  }
+  .poem-rail dd { margin-bottom: 0; }
+}

@@ -1,234 +1,78 @@
-.remark {
-  padding-top: clamp(10rem, 10vw, 16rem);
-  padding-bottom: clamp(4rem, 6vw, 18rem);
-  padding-left: 5rem;
-  padding-right: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--main-bg-color);
-  color: var(--main-text-color);
-  text-align: center;
-}
+/* ==========================================================================
+   Inspiration — two shelves. Records you can open, books you can't.
+   ========================================================================== */
 
-.remark-text {
-  font-size: clamp(4rem,7vw,9rem);
-  text-align: center;
+/* Spacing mirrors poems.html: the masthead's own bottom padding is the only
+   gap before the first shelf, and the last shelf runs straight into the
+   footer rather than adding another field of empty space. */
+.shelf {
+  padding-top: clamp(4rem, 8vh, 9rem);
+  padding-bottom: 0;
 }
+.masthead + .shelf { padding-top: 0; }
 
-.inspo-intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.intro-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: clamp(5rem, 6vw, 12rem);
-}
-
-.intro-media {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: clamp(18rem, 38vw, 50rem);
-  margin: 2rem auto 0;
-}
-
-.intro-text {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-  width: clamp(22rem, 55vw, 65rem);
-  text-align: justify;
-  align-items: center;
-  font-size: clamp(1.4rem, 1.5vw, 1.8rem);
-}
-
-.intro-text p {
-  word-break: break-all;
-  overflow-wrap: anywhere;
-}
-
-.intro-text pre {
-  display: inline-block;
-  width: auto;
-  max-width: 100%;
-  font-family: "Courier New", Courier, monospace;
-  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
-  white-space: pre-wrap;
-  margin: 0;
-  overflow-x: auto;
-}
-
-.intro-media pre {
-  align-self: stretch;
-  width: 100%;
-  padding: clamp(1.5rem, 2vw, 3rem);
-  border-radius: 1.2rem;
-  background: linear-gradient(135deg, #050505, #1b1f2a);
-  color: var(--main-bg-color);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.35);
-  font-family: "Courier New", Courier, monospace;
-  font-size: clamp(1.2rem, 1.4vw, 1.8rem);
-  text-align: left;
-  white-space: pre-wrap;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-.cipher-meta {
-  align-self: stretch;
-  width: clamp(25rem, 80vw, 80rem);
-  margin-top: clamp(2rem, 2vw, 3rem);
-  margin-bottom: clamp(1rem, 1.5vw, 2rem);
-  font-family: "Courier New", Courier, monospace;
-  font-size: clamp(1.3rem, 1.4vw, 1.8rem);
-  color: var(--main-text-color);
-  text-align: left;
-}
-
-.cipher-meta div + div {
-  margin-top: 0.4rem;
-}
-
-.terminal-prompt {
-  color: #7fffd4;
-  font-weight: 600;
-  margin-right: 0.6rem;
-}
-
-.montreal {
-  object-fit: cover;
-  width: clamp(15rem, 50vw, 60rem);
-  border-radius: 1rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.album-book-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: clamp(4rem, 6vw, 18rem);
-}
-
-.album-book-grid {
+.shelf-grid {
+  margin-top: var(--s-5);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: clamp(6rem, 3vw, 12rem);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(2.4rem, 3.5vw, 5rem) clamp(2rem, 3vw, 4rem);
 }
 
-.album-book-card {
+.item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: var(--s-2);
+  color: var(--fg);
 }
 
-.album-book-card .album-book-pic {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.item-art {
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--bg-sunk);
+  aspect-ratio: 1;
+  position: relative;
 }
+.shelf--books .item-art { aspect-ratio: 2 / 3; }
 
-.album-book-card:hover .album-book-pic {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.35);
-  cursor: pointer;
-}
-
-.no-hover .album-book-pic {
-  transition: none;
-}
-
-.no-hover .album-book-card:hover .album-book-pic {
-  transform: none;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  cursor: default;
-}
-
-.album-book-card h2 {
-  font-size: 3rem;
-  width: clamp(15rem, 30vw, 45rem);
-  text-align: center;
-  margin-bottom: clamp(0.5rem, 1vw, 2rem);
-}
-
-.album-book-card p {
-  font-size: 2rem;
-}
-
-.album-book-pic {
+.item-art img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  width: clamp(15rem, 30vw, 45rem);
-  border-radius: 1rem;
-  margin-bottom: clamp(1rem, 2vw, 3rem);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  filter: grayscale(1) contrast(1.05);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
 }
 
+/* Nothing on this shelf is a link now, but both records and books still
+   answer the cursor: the cover returns to colour and lifts slightly. */
+.item:hover .item-art img {
+  transform: scale(1.05);
+  filter: none;
+}
 
+.item-title {
+  font-family: var(--font-display);
+  font-size: var(--t-base);
+  font-weight: 500;
+  line-height: 1.3;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  transition: color 0.25s var(--ease);
+}
+.item:hover .item-title { color: var(--accent); }
 
-@media only screen and (max-width: 1510px) {
-  .intro-media,
-  .intro-text {
-    width: clamp(25rem, 70vw, 80rem);
-    margin-inline: auto;
-  }
+.item-meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  color: var(--fg-faint);
+  text-transform: uppercase;
+  line-height: 1.6;
+}
 
-  .remark {
-    padding-top: clamp(12rem, 12vw, 16rem);
-    padding-bottom: clamp(3rem, 3vw, 12rem);
-  }
-
-  .album-book-container {
-    padding-bottom: clamp(6rem, 3vw, 12rem);
-  }
-
-  .intro-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .intro-media {
-    width: clamp(25rem, 70vw, 80rem);
-    margin-inline: auto;
-    align-items: center;
-  }
-
-  .intro-media pre {
-    align-self: center;
-  }
-
-  .cipher-meta {
-    width: clamp(25rem, 70vw, 80rem);
-  }
-
-  .montreal {
-    /* margin-bottom: clamp(6rem, 4vw, 14rem); */
-    width: clamp(25rem, 70vw, 80rem);
-    margin-right: 0;
-  }
-
-  .intro-text {
-
-    font-size: clamp(1.5rem, 2vw, 3rem);
-  }
-
-  .album-book-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .album-book-card h2 {
-    font-size: clamp(1.8rem, 2vw, 3rem);
-  }
-
-  .album-book-card p {
-    font-size: clamp(1.5rem, 2vw, 3rem);
-  }
-
-  .album-book-pic {
-    width: clamp(20rem, 50vw, 60rem);
-  }
+/* stacked on a phone that rhythm reads as dead air, same as the poems page */
+@media (max-width: 700px) {
+  .shelf { padding-top: clamp(3.5rem, 6vh, 6rem); }
+  .masthead + .shelf { padding-top: 0; }
+  .shelf-grid { margin-top: var(--s-3); }
 }

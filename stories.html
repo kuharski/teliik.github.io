@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stories</title>
+  <meta name="description" content="Stories by Andrew Kuharski, writing as TELiiK.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/seal-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/seal-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/seal-16.png">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#173F6D">
+  <link rel="shortcut icon" href="/images/seal-32.png">
+  <meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12141A" media="(prefers-color-scheme: dark)">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("teliik-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/stories.css">
+
+  <script src="scripts/site.js" defer></script>
+  <script src="scripts/book.js" defer></script>
+</head>
+
+<body>
+  <header class="nav">
+    <a href="./" class="nav-mark">TELiiK</a>
+    <div class="nav-right">
+      <nav class="nav-links" id="nav-links" aria-label="Main">
+        <a href="./music">Music</a>
+        <a href="./stories" aria-current="page">Stories</a>
+        <a href="./poems">Poems</a>
+        <a href="./inspiration">Inspiration</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">
+        <span class="theme-dot" aria-hidden="true"></span>
+        <span class="theme-words" aria-hidden="true"><span class="theme-word theme-word--dark">Dark</span><span class="theme-word theme-word--light">Light</span></span>
+      </button>
+      <button class="nav-burger" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <i></i><i></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="spine" aria-hidden="true"><span>Stories</span></div>
+
+  <main>
+    <section class="masthead wrap">
+      <p class="eyebrow">Prose</p>
+      <div class="masthead-title">
+        <h1>Short Stories</h1>
+        <p class="masthead-end"><span class="seal seal--lg" aria-hidden="true"></span></p>
+      </div>
+    </section>
+
+    <section class="book-wrap wrap">
+      <aside class="book-rail">
+        <dl>
+          <dt>Contents</dt>
+          <dd><button type="button" class="book-jump" data-story="landlord">Landlord</button></dd>
+          <dd><button type="button" class="book-jump" data-story="japanese-candy">Japanese Candy</button></dd>
+          <dd><button type="button" class="book-jump" data-story="buck">Buck</button></dd>
+          <dd><button type="button" class="book-jump" data-story="buddy">Buddy</button></dd>
+          <div class="rail-date">
+            <dt>Date</dt>
+            <dd class="book-date">&mdash;</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <div class="book" id="book">
+        <div class="book-viewport">
+          <div class="book-flow" id="book-flow">
+            <div class="leaf leaf-title">
+              <p class="eyebrow">Four stories</p>
+              <h2>Short<br>Stories</h2>
+              <p class="leaf-byline">Andrew Kuharski</p>
+              <span class="seal seal--lg" aria-hidden="true"></span>
+            </div>
+
+            <nav class="leaf leaf-contents" aria-label="Contents">
+              <p class="eyebrow">Contents</p>
+              <ol>
+                <li><button type="button" class="book-jump" data-story="landlord">
+                  <span class="leaf-name">Landlord</span>
+                  <span class="leaf-date">Jul 2026</span>
+                </button></li>
+                <li><button type="button" class="book-jump" data-story="japanese-candy">
+                  <span class="leaf-name">Japanese Candy</span>
+                  <span class="leaf-date">Jul 2025</span>
+                </button></li>
+                <li><button type="button" class="book-jump" data-story="buck">
+                  <span class="leaf-name">Buck</span>
+                  <span class="leaf-date">Jul 2023</span>
+                </button></li>
+                <li><button type="button" class="book-jump" data-story="buddy">
+                  <span class="leaf-name">Buddy</span>
+                  <span class="leaf-date">Apr 2020</span>
+                </button></li>
+              </ol>
+            </nav>
+
+        <article class="story" id="landlord" data-title="Landlord" data-date="Jul 2026">
+          <h2 class="story-title">Landlord</h2>
+          <p class="lede">One two three. One two three. Boyang could not deal cards without counting in his head. Drunk and slamming cards face down in front of Wenbo and Haoran on the mahjong table, he was dealing out of habit despite having won the last round as landlord. A winning landlord never deals, and Boyang rarely won when he was very drunk. He loved playing dou dizhu almost as much as he loved drinking.</p>
+          <p>“Deal me a bomb, old friend,” Wenbo said. He puffed cigarette smoke onto his cards, waving his hands around like he was casting a spell on them. The smoke rose and thickened the haze in their private card room. “Deal Haoran a bomb too. Then when you lose as landlord next round, you’ll owe us even more money!”</p>
+          <p>“Just because I have the face-up card doesn’t mean I’ll call landlord,” Boyang replied, glancing at the nine of spades lying face-up beside his bag of chips. He shoved a handful into his mouth before finishing dealing.</p>
+          <p>“When you’re this wasted you always call landlord,” Haoran said.</p>
+          <p>“Not true,” Boyang said.</p>
+          <p>“It is true,” Wenbo said, taunting Boyang by pushing the now dealt <i>dǐ pái</i> towards him. Wenbo picked up his cards and made a shocked face, like they were made of gold.</p>
+          <p>Boyang picked up his cards and the notepad Haoran was keeping score on between rounds. He owed Wenbo and Haoran several beers’ worth of money and knew that calling landlord with his mediocre hand would likely make him poorer. But without hesitation he flipped the <i>dǐ pái</i> over to present his friends with a three of clubs, a five of spades, and an eight of hearts. He slowly slid the three terrible cards into his hand, jokingly lowering his head in defeat.</p>
+          <p>“Boyang our landlord. No, no. Our fool!” Wenbo laughed.</p>
+          <p>“You used to play this game properly back in university and now you just call landlord like a lunatic!” Haoran shook his head. “You let Wenbo get in your head every time and then transfer us half your salary.”</p>
+          <p>“I’m just having fun.” Boyang took a large swig of his beer. “It’s the Tsingtao making the decisions right now, not me.” But Boyang knew that it wasn’t the alcohol.</p>
+          <p>Boyang sorted his cards and threw triple threes and a pair of fives from his hand onto the table to start the round. Haoran looked disappointed as the cards scattered and one five bounced into their shared ashtray. Knowing Haoran would take a while to decide on his first move, he reached across the table and grabbed a pack of Chunghwa. He slipped his Zorro lighter out of his pocket and briefly set it on the table. Engraved into the metal lighter was 及时行乐: carpe diem.</p>
+          <p>“You’re not buying a car, Haoran,” Boyang said, lighting a cigarette. “What kind of mental gymnastics are you doing over there.”</p>
+          <p>“Some of us like to think before we take our turn,” Haoran said. “You should be taking notes instead of talking.”</p>
+          <p>“We already finished university. I’m done with notes, Mr. Valedictorian.”</p>
+          <p>“Well, I think you still have some learning to do.” Haoran placed triple eights and a pair of sixes on the table and gently removed Boyang’s five from the ashtray.</p>
+          <p>The comment made Boyang slightly flush. Funnily enough, if it weren’t for Haoran, Boyang would have been valedictorian. He was second to only Haoran in their graduating class. But now — a few years later — he was doing poorly at his cushy desk job and on the verge of losing it. His mother would be so disappointed in him. He made sure no one knew.</p>
+          <p>“Hope we’re not interrupting, but it’s your turn now, Wenbo,” Boyang said casually.</p>
+          <p>Wenbo looked up with a face stuffed full of pork belly. They had picked up takeout food and beer and snacks before arriving at the card room. Haoran looked disgusted as Wenbo wiped chip crumbs off his shirt and fumbled with his cards.</p>
+          <p>“Imagine if your boss saw you like this,” Haoran said.</p>
+          <p>Wenbo mumbled back a garbled reply; his mouth was still full of food.</p>
+          <p>“At least someone’s enjoying the best takeout in Chengdu.” Haoran pointed to Boyang’s side of the table — his pork belly was untouched. “All that meat and you choose to scoff down chips.”</p>
+          <p>“Leave me and my chips alone.” Boyang continued to shovel fried-crab-flavoured Lay’s into his mouth. It was the only kind of chips he would eat. When he was a boy, his mother would treat him with a bag when he came home from school with a perfect test score. This happened regularly. He would sit with her on their blue couch in their cozy family living room. With chips in his lap, he talked on and on about his day at school. He knew his mother was tired after work, but whatever energy she had left was always spent with him on that couch.</p>
+          <p>They finished the round and Boyang lost decisively. He asked for an intermission to work on his dinner. Really, he was tired of losing. He started prodding at his pork belly and watched as Wenbo popped the cap off three beer bottles. Boyang’s eyes followed the bottles around the room. Wenbo then handed them out and raised his bottle for a toast.</p>
+          <p>“With the finest beer in all of China.” Wenbo kissed the Tsingtao logo on his bottle. “Let me make a toast. To here and now!”</p>
+          <p>“To here and now!” they all shouted, though Haoran was slightly less enthusiastic.</p>
+          <p>Boyang took a hasty gulp. “You know I’m seeing a new girl,” he blurted out.</p>
+          <p>“Is she a bartender?” Haoran said.</p>
+          <p>“Is she hotter than the last one?” Wenbo chimed in.</p>
+          <p>“Hey, Haoran, that was a one-time thing,” Boyang laughed. “And yes, don’t worry, Wenbo. This girl is super hot. Dumb as rocks though, but good thing that doesn’t matter!”</p>
+          <p>“Let’s go, dude!” Wenbo got up and hugged Boyang, spilling beer on the tiled floor.</p>
+          <p>Boyang had been spending a lot of nights at Jiuyanqiao Bar Street, hopping from club to bar, so Haoran’s question wasn’t unreasonable. Many staff knew Boyang by name. Out on the street, he could feel his mother watching and scolding him. But he loathed being at home in his childhood apartment — all alone. He couldn’t even sit on their blue couch without crying. So, even on weekdays he would be out on the street late into the night and try to sober up at the office the next morning.</p>
+          <p>“One day it might matter, though,” Haoran said quietly.</p>
+          <p>“Maybe. But not today. Not here and now.” Boyang took another drink from his half-empty beer and shook Wenbo off his back. He picked up his chopsticks and, feeling very woozy, sloppily crammed pieces of pork belly into his mouth. He could hear Haoran talking about the new couch he and his fiancée had bought but couldn’t make out all the details. His head was throbbing and his vision was blurry. Boyang had offered them his blue couch but they had told him it was out of fashion.</p>
+          <p>“Yes, Wenbo, that white one I showed you the other day. That’s the one,” Haoran said.</p>
+          <p>White like a blank piece of paper — fresh and new, Boyang thought. He sat in his chair with a full mouth, as the room shifted and spun around him and his mind faded in and out. Then he choked. At first, he coughed, then gasped, then fell dead silent. A piece of fat was lodged in his throat and his eyes were bloodshot and watering. He tried to reach into his mouth to pull out the fat, but it was too deep. Pieces of food and drool covered his shirt and his face was red and his neck strained. He banged on the table and kept trying to cough.</p>
+          <p>Wenbo sat frozen. But Haoran rushed up out of his seat towards Boyang. Haoran wrapped his arms around Boyang from behind and started the Heimlich manoeuvre. Five thrusts — Boyang was still silent. Three more, and Boyang coughed sporadically and spat out the fat onto the table. His eyes full of tears and the room still spinning, he didn’t know who to thank, but he had a feeling it was Haoran.</p>
+          <p>“Are you okay? Boyang, can you breathe now?” Haoran said.</p>
+          <p>“Yes,” Boyang said softly, wiping his eyes clear of tears. His mother always used to tell him to eat slowly. I should have just stuck with the chips, he thought. He was nauseous and his mouth was full of saliva. He felt like his mouth was foaming. Before he had the chance to thank Haoran, he stood up and started walking to the garbage can in the corner of the room. Barely out of his seat, he slipped on the wet tile covered in Wenbo’s beer, falling on his back.</p>
+          <p>“Dude, are you okay? Did you hit your head?” Wenbo squatted down next to Boyang, nearly slipping and falling on top of him. He held the side of Boyang’s head, rubbing it with his thumb as he watched Boyang’s eyes open and close and open again.</p>
+          <p>“No-n-no. I’m fine. Just my back.” Boyang writhed on the ground and tried to get up.</p>
+          <p>“Whoa, relax. We got you,” Haoran said, standing over Boyang and firmly grabbing his left arm. Wenbo did the same on the right, rising slowly from the ground.</p>
+          <p>“One two three,” Haoran and Wenbo said together as they hoisted Boyang up.</p>
+          <p>“Thanks-s, guys,” Boyang said, nearly on his feet. “You guys are the be —” Bits of pork belly and chips spewed out of his mouth as vomit covered him and his friends.</p>
+          <p>With arms now coated in light brown vomit, Haoran and Wenbo let go of Boyang’s arms. Still needing their support, Boyang fell backwards, banging the back of his head on the tile. He lay motionless on the ground like he was on an operating table, his eyes squinting from the lights on the ceiling. His body was covered in chunks of food and his head rested on a growing splotch of red. The room smelled of vomit.</p>
+          <p>“Fuck, Boyang! Haoran, what do we do?” Wenbo’s eyes were wide.</p>
+          <p>“I’ll call an ambulance.” Haoran took off his shirt and tossed it to Wenbo. “Put this under his head and press it tight.” Haoran dialled 120 and left the room.</p>
+          <p>“Wenbo, pass me —” Boyang spat out the taste of puke onto the floor. “Pass me my lighter and a cigarette.”</p>
+          <p>“Are you fucking crazy?” Wenbo propped up Boyang’s head with his left hand, still caked in vomit, and pressed the shirt into his hair.</p>
+          <p>“Just do it. Please.” Boyang wore a halo of crimson marbled with brown streaks.</p>
+          <p>Boyang watched Wenbo pause and look at him. Wenbo’s eyes were glassy. Then he reached over with his free hand and picked up Boyang’s lighter and shook a cigarette free from the pack lying on the table. He carefully placed the lighter and cigarette in Boyang’s palm. Wenbo started to cry.</p>
+          <p>Boyang lit the cigarette and inhaled deeply. His mind felt fainter and fainter. He held his lighter in front of him and flipped it to the engraved side. Carpe diem, he thought, exhaling smoke into the air. The smoke danced in the light from the ceiling and in it he saw his mother’s face. He traced the creases of her faint smile with his lighter and examined her eyes, her nose, her mouth, and her ears the way a doctor would. She looked sick and pale just as she did when he last saw her. She wore a warm angelic halo radiating love. With his hand he held her bald head and rubbed her temple softly with his thumb, the same way she used to rub his on their blue couch.<span class="story-mark seal" aria-hidden="true"></span></p>
+        </article>
+        <article class="story" id="japanese-candy" data-title="Japanese Candy" data-date="Jul 2025">
+          <h2 class="story-title">Japanese Candy</h2>
+          <p class="lede">I miss so much more than Japanese candy. There was a sweetness in the air and the people. It was the kind of sweetness you can’t taste until many years have passed. I can still see myself playing with Teliik around my grandmother’s old garden shed, running with my fist in the sky pretending to fly like Astro Boy. I do miss Teliik. I miss the way my stomach would hurt because I was having too much fun to go inside for food. I miss the pain in my stomach as we laughed in the garden, reading manga we stole from the school library, and the panic in Teliik’s eyes as he tried to prop up trampled cucumbers. I’m sure he would say the same. But we always wanted to go further. When we were feeling restless, we would adventure past the paper pages, over the garden fence, so far out along the coast that the shed appeared to be nothing more than a little speck in a landscape of green, or so it felt at the time. I’m sure my grandfather could still make out the writing on our t-shirts as he enjoyed his afternoon tea under the veranda. My grandmother would yell from the kitchen window when we got too close to the forest’s edge. At night, she would tell stories of magical bears that cast spells on little children, causing them to hibernate for thousands of years. But we didn’t let her frighten us, and we would run off into the forest whenever we got the chance.</p>
+          <p>At the time, I couldn’t taste this sweetness, what others might refer to as nostalgia. I could only taste the salty breeze from the sea. Our family had called the coast home for hundreds of years, braving every storm and wave. At nighttime, I would often sneak outside when I was supposed to be doing my homework to watch the stars. There was no light pollution like the cities in the south. Just me, the sea, and the sky. There was one rock that I would always sit on. I didn’t sit there looking for answers — I just sat there to be. I didn’t realize at the time that in a few short years I would become too old to comfortably enjoy that rock and would have to graduate to a proper chair. I wish I had snuck out more often. I wonder if nowadays that rock is an important part of another boy’s nightly routine. Another boy tracing the stars with his finger, absorbed by ideas of what one might find past them. A boy so sure of what exists past the stars that he can feel the weight of certainty that only imagination can offer in every one of his bones. Or perhaps the rock was swallowed by the waves long ago, shortly after I moved away, and it tells tales on the ocean floor about a dear friend he had once held close.</p>
+          <p>My grandfather owned a small boat, just big enough to take Teliik and me out fishing. I didn’t care much for it, though, and spent more time looking at the clouds than I did at the waves. On our fishing trips, I would daydream of flying off the boat like Astro Boy, just as I had practiced in the garden, out into the sea to discover distant lands. I wanted to fly to islands that our boat couldn’t reach — that no boat could reach. I wanted to go to islands in the sky, past the stars. The ones that had not yet fallen from grace into the world’s oceans for us to call home. The islands that no telescope could see, nor Soviet rocket could reach. I wondered if those islands were where the magical bears that my grandmother recounted had lived. It made sense that they would hide in the sky, casting spells on each other so they could all be at rest. A leisurely lifestyle most would envy, but perhaps there was a magical young bear who wanted nothing more than to jump down into the sea and row a boat to islands that no magical bear could reach. An island like my own, with forests so enticingly green, the kind that surely didn’t exist in the sky. Forests a young magical bear couldn’t resist exploring.</p>
+          <p>The magical bears most likely caught stardust to trade with other sky creatures and support their long periods of rest, or so I thought. I didn’t know much about money, just that the topic made my grandparents lose their liveliness, so stardust and a floating barter economy seemed most plausible to me. I had written a speech on the last page of my schoolbook in case I had met a magical young bear in the forest past the garden shed. I thought that I could charm him into giving me one of his parents’ pouches of magical dust. Some of my candy from in town seemed like a fair exchange. I hoped that the pouch would mean my grandfather would no longer have to work. I could tell he was in pain by the way he would walk, but he would never stop smiling. Some days it must have been hard for him to smile. So, whenever my grandmother was concentrating on her cooking, or my grandfather was working, Teliik and I would search the forest in hopes of encountering a young magical bear with a desire for adventure as strong as ours. Today, I keep the speech from the back of my schoolbook tucked inside my suit pocket every day I go to work, and I visit the bears at my local zoo whenever I want to talk to my grandparents.<span class="story-mark seal" aria-hidden="true"></span></p>
+        </article>
+        <article class="story" id="buck" data-title="Buck" data-date="Jul 2023">
+          <h2 class="story-title">Buck</h2>
+          <p class="lede">His wife’s newly bought Muskoka chairs are quite comfortable for Mr. Elk, as he lays lazily on his back overlooking the sleepy Melgund Lake from his porch. With the weekly newspaper in his lap, he quickly flips through the pages with his cloven hooves desperately trying to stumble upon something of interest. Mrs. Elk had left the day before, departing with a bingo partner of hers to accompany some others south of the border for a few days of shopping in the land of the free. They’ve all known each other since elkementary school — a reunion of sorts. Two things which couldn’t be farther from Mr. Elk’s liking, materialism, and spending time with others, however, he was not one to ruin his wife’s fun and had promptly slipped her a large sum of cash when she departed.</p>
+          <p>Mr. Elk, although he adores his wife, is admittedly enjoying his first day of listening to nothing but the sound of birdsong in his home, coupled with the periodic interjections of Mr. Elk’s beloved neighbourhood owl. Neighbourhood, albeit is a strong word for a peninsula that consists of only his unimpressionable abode, surrounded by water on three of its sides and kilometres of uninhabited forest on its fourth. He would label himself as a hermit if it weren’t for his abandonment of God and monthly visits to the bookstore in town when his shelves were feeling a bit dull. There he could be seen warding off friendly store employees trying to aid in his search for fear of judgment, and occasionally wishing the cashier a lovely afternoon if the timing felt right. He considers this plenty enough for the bucks in the bingo hall to not mistake his wife for a widow, since he certainly does not see the joy in making an appearance each week. It’s hard to expect additional extraversion from a published author, who makes his living alone. He has no problem finding all the inspiration he needs in his home.</p>
+          <p>“Coup attempt in Lithuania, Vilnius occupied by extremists. Plane crashes in the Atlantic. Thirty thousand humans protest working conditions in Dresden.” he murmurs to himself while revisiting the newspaper. “Quite the collection of bleak headlines. If only humans could still read, maybe they’d be moved by what’s going on in Dresden, but I don’t understand what sort of sympathy the columnist is trying to pry out of elks. We were hunting humans in the forest for sport a mere two decades ago. It’s hard enough to have elks put down their rifles, let alone sympathise, and I fear that recent attempts to bring us closer have only torn us farther apart.”</p>
+          <p>After a long day of lounging in the sun, Mr. Elk parts ways with its rays at dusk and makes his way inside. Every night he makes sure a fire is lit in his living room, and besides the eerie quietness of it, this night is no different. He gathers together a few birch logs, kindling, a matchbox, and the newspaper he had been sifting through that day. He arranges the logs in the fireplace the same way every night, and after doing so giddily slips the now crumpled-up newspaper into the centre of his skillfully crafted log cabin. Funnily enough, though he’s known to live each one worriless within the confines of his property, his favourite part of any given day is gently putting it to rest with a cold beer between his hooves. There’s a twisted joy he finds in burning the daily news, trapping it in a fiery tomb, as if that would rip the day’s events out from the past, leaving nothing but ash and the present. He would burn tomorrow’s paper too, but he hasn’t quite figured out where to find it. Bent underneath the decorative wooden mantel, he strikes the stone of the fireplace with a match and lights several pieces of the news, patiently waiting for an orange glow. With the fire now swiftly catching, he stumbles back while quickly lifting his head, knocking his antlers into the mantel above him, sending a sharp stinging sensation through his cervine skull.</p>
+          <p>“Agh fuck. You could’ve given me a heads-up or something. This is the third night in a row now. The next time I give it a proper whack I might think it’s the first.” he whines, staring at a human made of marble protruding out of the wall above the mantel. The marble man is attached to the wall by his waist, only possessing an upper body. He is young with curls in his hair and beard, a piercing cold gaze, broad shoulders, and a lean build much like the Greek statues of ancient human times. However, this man is not ancient. He was turned to marble long after Alexander the Great’s conquests, frozen in time with his arms out in front of his face as if he was trying to catch falling snow in the palms of his hands when it happened.</p>
+          <p>“Sorry, that sort of thing doesn’t cross my mind. I’m a man, after all, and antlerless. The only things that sprout from our skulls are thoughts, which we’re quite proud of, as they leave us winding and weaving away. Though I suppose there are humans, flesh or marble, who wish for some thoughts to not sprout at all.” says the man.</p>
+          <p>“Well, the purest of ones sprout from your mind, that’s why I capture them in my notebook.” Mr. Elk assures the man. “I’ll never quite understand how you’re able to float between them so elegantly, like a trapezist flying through the air.”</p>
+          <p>“A trapezist? Where did you read that? I thought that human pastime was lost in history along with the rest of our culture after the elks won the Great War, slaying Castleberry Cutshaw.” the man says inquisitively.</p>
+          <p>“I didn’t read it, I heard it from you silly, don’t you remember? I even included a trapezist in my latest novel, and the hilarity of it is everyone believes it’s a creation of my own, like all I do is dream up fictitious things in the forest. Half the time I’m retelling bits of a history that was all too real; elks can be so blind to the truth.” says Mr. Elk.</p>
+          <p>“Well, I suppose it’s hard to give history lessons while being shot at.” the man chuckles with distaste. “The flesh-covered humans of today know nothing of our history. Without literacy, it’s difficult to pass down many things between generations, if only they were given education. Anyways, the lack of opposable thumbs makes an elk trapezist hard to believe.”</p>
+          <p>“Ah yes, us elks are quite limited in that regard, but as of now your marble thumbs are about as opposable as mine, don’t you see the humour in that?” Mr. Elk snickers as he walks to the kitchen to grab another beer.</p>
+          <p>“Oh, I wish I could.” the man exhales sarcastically. “Maybe if you drink four more beers your jokes will become tolerable.”</p>
+          <p>“And maybe if you —” Mr. Elk stubs his toe on the couch. “Fuck. Sometimes I wish I were marble. It would certainly hurt less each time I bumped into something. You know I can be a real clumsy guy —”</p>
+          <p>“You? Frozen in marble?” the man interrupts. “Simply for a hardened exterior? Oh please, rip me from this wall and gently lay my head in the fire beneath me where I can’t hear this nonsense. The crimson that was squeezed from me at a ripe age, the marble eternity I have ahead of myself, this is what you envy?”</p>
+          <p>“Oh, relax will you, I didn’t mean it in the literal sense. You know there’s no blood on my hooves, you lost your flesh centuries before I was born. I saved you at that auction, that old elk only wanted to show you off during his dinner parties, while he blabbed on about how he and his cronies would continue to fuck with the humans who still have their flesh. I’m not a captor, I’m a liberator. Here at least, you have someone to talk to.” replies Mr. Elk.</p>
+          <p>“Ah yes, someone to talk to. Someone to drain me of every last thought and pass it off to others like it’s somehow original li-li-like you invent sliced fucking bread each and every year! Deep down in your fucking soul, you know you’re nothing without me, and your novels wouldn’t pay a damn bill if you were to write them on your own.” the man yells vehemently.</p>
+          <p>“Will you quit your bullshit? I’ve been writing for decades before I bought your sorry ass.” Mr. Elk yells back. “We simply have playful conversations, I don’t owe anything to you.”</p>
+          <p>“Then leave, won’t you? Leave! If you don’t need me, find inspiration and thoughts elsewhere! See how far those last two acorns rattling around your cervine skull will get you! Because if we’re being honest, you’re afraid of a world without me, so you spend your days here bothering me until your blue in the face, god you really are a fucking hermit.” the man sneers.</p>
+          <p>“Fine. Fine! I’ll leave. Maybe I’ll find some thoughts in the forest. All great artists draw inspiration from nature, don’t they? Let’s go for a walk.” Mr. Elk announces scornfully, smashing his half-empty beer bottle on the forehead of the man. He launches himself towards the man, and rips him from the wall, using a newfound boost in strength brought by adrenaline and drunkenness. He flings the man on his back and in a flurry of emotion scrambles towards the back porch door, angrily huffing and puffing, all the while the man remains entirely frozen, unmoving. Outwards swings the door as Mr. Elk runs through it, now sprinting down his porch stairs, murmuring about his artistic independence and pride while the man is quietly along for this turbulent ride.</p>
+          <p>He continues to sprint faster and faster through the forest, while the man continues to remain silent until they finally reach Mr. Elk’s dock on Melgund Lake. He takes the man past an old, moored pontoon to the very end of the long wooden dock, placing the man down and catching his breath, as the moonlight dances on the black waters surrounding them.</p>
+          <p>“A little midnight boat ride? How fun that would be for old time’s sake.” the man says nervously.</p>
+          <p>“I was thinking more of a midnight dip, and I’ll play the part of a terribly neglectful lifeguard.” Mr. Elk says, with the hoof of his right hind leg digging into the chest of the man, now laying prone on the edge of the dock.</p>
+          <p>“Forget what I said about drinking more beers let’s just go inside and sleep this one off. You can’t seriously be trying to rid me of your household, of your life.” the man stutters. “You need me, you really do. You will be all alone in this world, and well, so will I.”</p>
+          <p>“We will see. At least I’m mortal, loneliness can’t possibly last forever. I suppose for this reason alone I wouldn’t wish to be marble.” Mr. Elk says pressing even more of his weight on the frozen marble man as if he could feel any pain. “Out of spite I’m going to drink a few more beers, and you my friend, are going to drink lake water for the rest of eternity.” In one swift motion, Mr. Elk rolls the man off the edge of the dock with his hoof, and the sound of a large splash is carried across the lake, waking critters of all kinds as it undulates through the northern air. He watches as the man slowly sinks to the bottom of the lake, while the now-rippled water reflects bits of moonlight into his eyes. He sits down, letting his hind legs dangle over the lake, watching as the water beneath his hooves starts to settle down. His eyes begin to wander as he finds himself looking up at the moon and stars, trying to see if he can find any patterns on this particular night.</p>
+          <p>“And to think Alexander the Great gazed upon the very same moon and stars. Troy, Tyre, Gaza, Alexandria, Babylon, Persepolis. Every day he faced a new trying conquest yet, every night I would like to think he found solace in the same night sky.” Mr. Elk said softly to himself. “Explaining to my wife that the man was sold in the town over shouldn’t be difficult. She won’t raise concerns so long as I mend the wall he was pried from. To her, he was only ever another household decorative, another thing she dusted on the weekends. She never knew the man could speak. Now that I come to think of it, no one knew.”<span class="story-mark seal" aria-hidden="true"></span></p>
+        </article>
+        <article class="story" id="buddy" data-title="Buddy" data-date="Apr 2020">
+          <h2 class="story-title">Buddy</h2>
+          <p class="lede">My vision is nearly entirely obscured now, as a blanket of dark fog sets upon the valley. This is not the first time I’ve taken my search to these depths, but perhaps I would find a stroke of luck this time. I can sense it; I can feel his presence. There is a rustle in the wet undergrowth behind me, along with the swift departure of sparrows from the surrounding spruce trees. With the urgency of a soldier, my eyes lock on his elusive shadow, my body thrusting towards him with the sort of speed I possessed in my younger days.</p>
+          <p>“Oh, I nearly have you Buddy! You’re almost in my arms, I can feel your warmth already. After all these years I’ve got you. Oh my, you’re really here a-a-and well, everything will be okay.” I shared with nature and all her subjects.</p>
+          <p>My eyes shut and arms out, anticipating them to be filled by the friend I’ve so longed for, but all I feel is nothing. Nothingness. The void remains there. I look around and find myself amidst crushing homes and crashing parties of the local critters in the thick bushes beneath me, and there is still no sign of Buddy.</p>
+          <p>I hoist myself up onto the thick spruce branch in an instant. The damp bark is met by my firm grasp, and the firm grasp becomes weaker with every branch that passes by. This is most definitely the oldest tree in the valley, as well as the tallest, but I am determined to reach the top. Stuck in place for centuries, this tree has seen the horrors of many wars and survived too many terrible storms to count. The tree possesses all of the valley’s wisdom, this tree right here must have all the answers. This must be where Buddy is, and I will finally find him at the top.</p>
+          <p>The hunger of a thousand lions fuels my body up the tree. Step. Step. Step. I catch a glimpse of the stars on my journey up, even though the fog’s opacity remains the same. I watch as they dance upon their elegant perch pumping my heart full of hope. So beautiful in nature. The Big Dipper is gazing back at me, but those stupid stars won’t mend relationships, fill my endless void, or find Buddy. I continue to persistently trudge up the tree.</p>
+          <p>It feels as if I’d been at it for hours now, but I forgot my watch at home so I can’t be certain. Great. More uncertainty. But that doesn’t matter because when I get to the top of this tree all of the uncertainty will disappear. With every branch I pass I become ever so closer to the answers to all of this and of course, Buddy. My journey, my search. I can see my long-awaited destination and soon everything will be okay. Everything will be okay. But just as my arm makes its way to the final branch, my clumsy foot slips, and I graze the wet bark by an inch. My body parallel to the ground, I begin my inexorable descent into the valley below. The Big Dipper and all its disciples are gazing back at me, as my body begins to pick up speed, but this time I cannot find a single shred of hope in those stupid stars.<span class="story-mark seal" aria-hidden="true"></span></p>
+        </article>
+          </div>
+        </div>
+
+        <nav class="book-controls" aria-label="Pages">
+          <button type="button" class="book-prev" aria-label="Previous page">
+            <span class="book-arrow" aria-hidden="true"></span>
+            <span class="book-lbl">Back</span>
+          </button>
+          <span class="book-folio" aria-live="polite">&mdash;</span>
+          <button type="button" class="book-next" aria-label="Next page">
+            <span class="book-lbl">Next</span>
+            <span class="book-arrow" aria-hidden="true"></span>
+          </button>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <button class="footer-mark" type="button" aria-label="Back to top">
+      TELiiK
+    </button>
+    <span class="footer-seal seal" aria-hidden="true"></span>
+    <p class="footer-meta">&copy; 2026 Andrew Kuharski</p>
+  </footer>
+</body>
+</html>

@@ -1,83 +1,291 @@
-.no-words {
-    padding-top: clamp(10rem, 10vw, 16rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
+/* ==========================================================================
+   Music — a discography as a list, not a stack of cards.
+   ========================================================================== */
+
+/* ==========================================================================
+   the release — the EP, laid out like the index hero: artwork in the left
+   column, the crop-marked showcase window opposite. The window component
+   itself lives in base.css.
+   ========================================================================== */
+
+.release {
+  padding-top: 0;              /* the masthead's own padding is the only gap */
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(3.5rem, 5vw, 9rem);
 }
 
-.no-words-text {
-    font-size: clamp(4rem,7vw,9rem);
-    text-align: center;
+.release-art { display: flex; flex-direction: column; gap: var(--s-3); }
+
+/* cover art keeps its colour — on this page the artwork is the content */
+.release-art img {
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--rule-soft) inset;
 }
 
-.music-container {
-    background-color: var(--main-bg-color);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-bottom: clamp(6rem, 6vw, 12rem);
-}
-
-.song-card {
-    background-color: var(--main-bg-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-left: 5rem;
-    padding-right: 5rem;
-}
-
-.song-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: clamp(2rem,6vw,4rem);
-    margin-top: clamp(2rem,6vw,4rem);
-    margin-bottom: clamp(2rem,6vw,4rem);
-}
-
-.song-img {
-    object-fit: cover;
-    width: clamp(30rem, 35vw, 50rem);
-    border-radius: 1rem;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-.audio-controls {
-    width: clamp(30rem, 35vw, 50rem);
-}
-
-@media only screen and (max-width: 880px) {
-
-    .no-words {
-        padding-top: clamp(12rem, 10vw, 16rem);
-    }
-
-    .music-box {
-        margin: clamp(4rem, 3vw, 12rem) auto;
-    }    
-
-
-}
-
-.music-box {
-  margin: clamp(6rem, 6vw, 12rem) auto;
-  width: clamp(30rem, 35vw, 50rem);
-  border-radius: 1.4rem;
-  background-color: #ffffff;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-  border: 1px solid #d7d7d7;
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+.release-caption {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: inherit;
+  gap: var(--s-2);
+}
+.release-caption .rule { flex: 0 0 clamp(3rem, 6vw, 7rem); }
+
+/* Nothing in this window is a single destination, so it must not behave like
+   a link: the title stays put and only the two platform links respond. */
+.release .showcase:hover .showcase-title { color: var(--fg); }
+.release .showcase:hover .showcase-cta { color: var(--link); }
+
+/* ---- track listing: same vocabulary as the book's contents leaf --------- */
+
+.release-tracks { margin-top: var(--s-1); }
+
+.release-tracks li {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--s-2);
+  padding-block: var(--s-1);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.rt-n,
+.rt-len {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.rt-name {
+  font-family: var(--font-display);
+  font-size: var(--t-base);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.release-meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+/* ---- the compact player -------------------------------------------------
+   80px, not the 152 or 352 album embed: at those heights Spotify renders its
+   own scrolling track list, which the window has already given above. At 80
+   it collapses to a single transport row — just somewhere to press play. */
+
+.release-player {
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--bg-sunk);
+}
+.release-player iframe { display: block; width: 100%; border: 0; }
+
+/* ---- platform links ----------------------------------------------------- */
+
+.showcase-cta { flex-wrap: wrap; }
+
+.release-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--link);
+}
+.release-link + .release-link { margin-left: var(--s-2); }
+.release-link:hover { color: var(--accent); }
+.release-link .arrow { transition: transform 0.35s var(--ease); }
+.release-link:hover .arrow { transform: translateX(0.5rem); }
+
+/* ==========================================================================
+   other songs
+   ========================================================================== */
+
+.tracks {
+  padding-top: clamp(4rem, 8vh, 9rem);
+  padding-bottom: 0;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: clamp(8rem, 12vw, 15rem) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 5rem);
+  align-items: center;
+  padding-block: clamp(3rem, 5vh, 5rem);
+  border-top: 1px solid var(--rule);
+}
+.track:last-child { border-bottom: 1px solid var(--rule); }
+
+/* Cover art keeps its colour here: on the discography the artwork is the
+   content, not page furniture. A hairline gives the darker covers an edge. */
+.track-art {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--bg-sunk);
+  box-shadow: 0 0 0 1px var(--rule-soft) inset;
+}
+.track-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.track:hover .track-art img,
+.track.is-playing .track-art img { transform: scale(1.03); }
+
+.track-body { display: flex; flex-direction: column; gap: var(--s-2); }
+
+.track-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-3);
+}
+
+.track-title {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  transition: color 0.3s var(--ease);
+}
+
+/* the playing track is named in the accent — same language as the index rows */
+.track.is-playing .track-title { color: var(--accent); }
+
+.track-links {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.track-links a { color: var(--link); }
+.track-links a:hover { color: var(--accent); }
+
+/* ---- player ---------------------------------------------------------- */
+
+.player { display: flex; align-items: center; width: 100%; }
+
+/* the JS-built controls are the flex row; .player is only their container */
+.player-custom {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.4rem, 2vw, 2.4rem);
+  width: 100%;
+  max-width: 64rem;
+}
+
+.player-toggle {
+  --size: clamp(3.6rem, 4vw, 4.6rem);
+  width: var(--size);
+  height: var(--size);
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: none;
+  color: var(--fg);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease),
+              background-color 0.3s var(--ease);
+}
+.player-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.track.is-playing .player-toggle {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.player-toggle svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+.player-toggle .icon-pause { display: none; }
+.track.is-playing .player-toggle .icon-play { display: none; }
+.track.is-playing .player-toggle .icon-pause { display: block; }
+
+/* progress: a hairline that fills with the seal navy */
+.player-scrub {
+  flex: 1;
+  height: 2.4rem;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+.player-scrub::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  height: 1px;
+  background: var(--rule);
+}
+.player-fill {
+  position: relative;
+  height: 1px;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.1s linear;
+}
+.player-fill::after {
+  content: "";
+  position: absolute;
+  right: -0.35rem;
+  top: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  transform: translateY(-50%) scale(0);
+  background: var(--accent);
+  transition: transform 0.25s var(--ease);
+}
+.player-scrub:hover .player-fill::after,
+.track.is-playing .player-fill::after { transform: translateY(-50%) scale(1); }
+
+.player-time {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.1em;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex: none;
+}
+
+/* no-JS fallback: the native element stays usable */
+.player-native { width: 100%; max-width: 42rem; }
+.js .player-native { display: none; }
+html:not(.js) .player-custom { display: none; }
+
+/* the window slides under the artwork, same breakpoint as the index hero */
+@media (max-width: 900px) {
+  .release {
+    grid-template-columns: 1fr;
+    gap: clamp(3rem, 6vh, 5rem);
+  }
+  .release-art img { max-width: 46rem; }
+  .showcase { padding-inline: 0; }
+}
+
+@media (max-width: 700px) {
+  .tracks { padding-top: clamp(3.5rem, 6vh, 6rem); }
+}
+
+@media (max-width: 640px) {
+  .track { grid-template-columns: 1fr; gap: var(--s-3); }
+  .track-art { max-width: 18rem; }
 }

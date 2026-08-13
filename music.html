@@ -2,183 +2,183 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <meta name="description" content="Music by Andrew Kuharski, recording as TELiiK.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/seal-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/seal-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/seal-16.png">
   <link rel="manifest" href="/images/site.webmanifest">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#000000">
-  <link rel="shortcut icon" href="/images/favicon.ico">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-config" content="/images/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
-  <script src="scripts/header.js" defer></script>
-  <script src="scripts/footer.js" defer></script>
-  <script src="https://kit.fontawesome.com/6708aff63b.js" crossorigin="anonymous" defer></script>
-  <link rel="stylesheet" href="styles/header.css">
-  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#173F6D">
+  <link rel="shortcut icon" href="/images/seal-32.png">
+  <meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12141A" media="(prefers-color-scheme: dark)">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("teliik-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+      // flagged here rather than in player.js so the native controls never flash
+      document.documentElement.className += " js";
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/music.css">
+
+  <script src="scripts/site.js" defer></script>
+  <script src="scripts/player.js" defer></script>
 </head>
+
 <body>
-    <header class="header">
-        <nav class="navbar">
-          <a href="./" class="nav-logo">
-            <div class="title">
-              <span style="--i:1">T</span>
-              <span style="--i:2">E</span>
-              <span style="--i:3">L</span>
-              <span style="--i:4">i</span>
-              <span style="--i:5">i</span>
-              <span style="--i:6">K</span>
-            </div>    
-          </a>
-          <ul class="nav-list">
-              <li class="nav-item">
-                <a href="./music" class="nav-link">MUSIC</a>
-              </li>
-              <li class="nav-item">
-                  <a href="./writing" class="nav-link">WRITING</a>
-              </li>
-              <li class="nav-item">
-                  <a href="./inspiration" class="nav-link">INSPIRATION</a>
-              </li>
-          </ul>
-          <div class="hamburger">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-          </div>
-        </nav>
-    </header>
-    <main style="flex-grow: 1;">
-      <section>
-        <div class="no-words">
-          <h1 class="no-words-text">
-            MUSIC
-          </h1>
-        </div>
-        <div class="music-box">
-          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/4YNT4K5jQWcjgFPEvPy4KJ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-        <div class="music-container">
-          <div class="song-card">
-            <img class="song-img" src="./images/lakes.png">
-            <h2 class="song-title">
-              Lakes
-              <p style=" position: relative; text-align: center; font-size: clamp(1rem,1.5vw,1.5rem);">
-                October 13, 2025
-              </p>
-            </h2>
-            <audio class="audio-controls" src="./audio/lakes.m4a" type="audio/mp4" title="Lakes" controls controlsList="nodownload noplaybackrate"></audio>
-          </div>
-        </div>
-        <div class="music-container">
-          <div class="song-card">
-            <img class="song-img" src="./images/onemorebeforebed.png">
-            <h2 class="song-title">
-              <p style="font-size: clamp(1.4rem,5vw,4rem);">One More Before Bed, Okay?</p>
-              <a href="./onemorebeforebedokay.pdf" target="_blank" style=" position: relative; text-align: center; font-size: clamp(1.4rem,2vw,2rem); color: #6200F8;">
-                <p>sheet music here</p>
-              </a>
-              <p style=" position: relative; text-align: center; font-size: clamp(1rem,1.5vw,1.5rem);">
-                April 25, 2025
-              </p>
-            </h2>
-            <audio class="audio-controls" src="./audio/onemorebeforebedokay.m4a" type="audio/mp4" title="One More Before Bed, Okay?" controls controlsList="nodownload noplaybackrate"></audio>
-          </div>
-        </div>
-        <div class="music-container">
-          <div class="song-card">
-            <img class="song-img" src="./images/beyondthesky.png">
-            <h2 class="song-title">
-              Beyond the Sky
-              <p style=" position: relative; text-align: center; font-size: clamp(1rem,1.5vw,1.5rem);">
-                January 5, 2025
-              </p>
-            </h2>
-            <audio class="audio-controls" src="./audio/beyondthesky.m4a" type="audio/mp4" title="Beyond the Sky" controls controlsList="nodownload noplaybackrate"></audio>
-          </div>
-        </div>
-        <div class="music-container">
-          <div class="song-card">
-            <img class="song-img" src="./images/starcharts.png">
-            <h2 class="song-title">
-              Star Charts
-              <a href="./starcharts.pdf" target="_blank" style=" position: relative; text-align: center; font-size: clamp(1.4rem,2vw,2rem); color: #F20693;">
-                <p>sheet music here</p>
-              </a>
-              <p style=" position: relative; text-align: center; font-size: clamp(1rem,1.5vw,1.5rem);">
-                December 11, 2024
-              </p>
-            </h2>
-            <audio class="audio-controls" src="./audio/starcharts.m4a" type="audio/mp4" title="Star Charts" controls controlsList="nodownload noplaybackrate"></audio>
-          </div>
-        </div>
-        <div class="music-container">
-          <div class="song-card">
-            <img class="song-img" src="./images/sCover.jpg">
-            <h2 class="song-title">
-              Sandstone
-              <p style=" position: relative; text-align: center; font-size: clamp(1rem,1.5vw,1.5rem);">
-                April 12, 2024
-              </p>
-            </h2>
-            <audio class="audio-controls" src="./audio/sandstone.m4a" type="audio/mp4" title="sandstone" controls controlsList="nodownload noplaybackrate"></audio>
-          </div>
-        </div>
-        <div class="music-container">
-          <div class="song-card">
-            <img class="song-img" src="./images/minnCover.png">
-            <h2 class="song-title">
-              Minnows
-              <p style=" position: relative; text-align: center; font-size: clamp(1rem,1.5vw,1.5rem);">
-                February 27, 2024
-              </p>
-            </h2>
-            <audio class="audio-controls" src="./audio/minnows.m4a" type="audio/mp4" title="minnows" controls controlsList="nodownload noplaybackrate"></audio>
-          </div>
-        </div>
-        <div class="music-container">
-          <div class="song-card">
-            <img class="song-img" src="./images/wCover.png">
-            <h2 class="song-title">
-              Wrens
-              <p style=" position: relative; text-align: center; font-size: clamp(1rem,1.5vw,1.5rem);">
-                January 10, 2024
-              </p>
-            </h2>
-            <audio class="audio-controls" src="./audio/wrens.m4a" type="audio/mp4" title="wrens" controls controlsList="nodownload noplaybackrate"></audio>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="footer-icons">
-        <a href="https://www.instagram.com/andrewkuharski/" target="_blank" rel="noreferrer">
-          <i class="fa-brands fa-instagram fa-fw" style="color: #000000; transition: 0.3s; font-size: 2.7rem;"></i>
-        </a>
-        <img class="two-footer" src="./images/22FA.png">
-        <a href="https://open.spotify.com/artist/4HuOKZWRAAiEM58F3AivnS?si=sZNmsXobSdCxWiwDuWc8qQ">
-          <i class="fa-brands fa-spotify fa-fw" style="color: #000000; transition: 0.3s; font-size: 2.7rem;"></i>
-        </a>
+  <header class="nav">
+    <a href="./" class="nav-mark">TELiiK</a>
+    <div class="nav-right">
+      <nav class="nav-links" id="nav-links" aria-label="Main">
+        <a href="./music" aria-current="page">Music</a>
+        <a href="./stories">Stories</a>
+        <a href="./poems">Poems</a>
+        <a href="./inspiration">Inspiration</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">
+        <span class="theme-dot" aria-hidden="true"></span>
+        <span class="theme-words" aria-hidden="true"><span class="theme-word theme-word--dark">Dark</span><span class="theme-word theme-word--light">Light</span></span>
+      </button>
+      <button class="nav-burger" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <i></i><i></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="spine" aria-hidden="true"><span>Music</span></div>
+
+  <main>
+    <section class="masthead wrap">
+      <p class="eyebrow">Recordings</p>
+      <div class="masthead-title">
+        <h1>Music</h1>
+        <p class="masthead-end"><span class="seal seal--lg" aria-hidden="true"></span></p>
       </div>
-      <div class="footer-name">
-        <div class="footer-scroll">
-          <span style="--i:1">T</span>
-          <span style="--i:2">E</span>
-          <span style="--i:3">L</span>
-          <span style="--i:4">i</span>
-          <span style="--i:5">i</span>
-          <span style="--i:6">K</span>
+    </section>
+
+    <section class="release wrap">
+      <div class="release-art">
+        <img src="./images/Phototropisme.jpg" alt="" width="1400" height="1400">
+        <div class="release-caption">
+          <hr class="rule draw">
+          <span class="eyebrow">Phototropisme</span>
         </div>
       </div>
-      <div class="copyright-notice">
-        <p>&#169; 2026 ANDREW KUHARSKI</p>
+
+      <div class="showcase reveal">
+        <span class="showcase-marks" aria-hidden="true"></span>
+        <div class="showcase-head">
+          <span class="eyebrow label">Debut release</span>
+          <span class="eyebrow">EP</span>
+        </div>
+
+        <h2 class="showcase-title">Phototropisme</h2>
+        <p class="showcase-blurb">
+          Phototropism is defined as the directional growth 
+          of an organism in response to a light stimulus, 
+          commonly observed in plants and fungi, where 
+          shoots bend towards light and roots grow away from it.
+        </p>
+
+        <ol class="release-tracks">
+          <li><span class="rt-n">1</span><span class="rt-name">Cartes du ciel</span><span class="rt-len">3:18</span></li>
+          <li><span class="rt-n">2</span><span class="rt-name">&Eacute;l&eacute;gie (pour l&rsquo;espoir)</span><span class="rt-len">2:43</span></li>
+          <li><span class="rt-n">3</span><span class="rt-name">Les lacs</span><span class="rt-len">2:05</span></li>
+          <li><span class="rt-n">4</span><span class="rt-name">Les vairons</span><span class="rt-len">2:04</span></li>
+        </ol>
+
+        <p class="showcase-cta">
+          <span class="seal" aria-hidden="true"></span>
+          <a class="release-link" href="https://open.spotify.com/album/4YNT4K5jQWcjgFPEvPy4KJ" target="_blank" rel="noreferrer">Spotify<span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="release-link" href="https://music.apple.com/us/album/phototropisme-ep/1867888629" target="_blank" rel="noreferrer">Apple Music<span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </p>
       </div>
-    </footer>
-  </body>
-  </html>
-  
+    </section>
+
+    <section class="tracks wrap">
+      <div class="section-head">
+        <h2>Demos</h2>
+        <p class="eyebrow">Four</p>
+      </div>
+
+      <div class="track reveal">
+        <div class="track-art"><img src="./images/onemorebeforebed.png" alt="" loading="lazy"></div>
+        <div class="track-body">
+          <div class="track-head">
+            <h3 class="track-title">One More Before Bed, Okay?</h3>
+            <p class="track-links">
+              <a href="./onemorebeforebedokay.pdf" target="_blank" rel="noreferrer">Sheet music</a>
+              <span>25 Apr 2025</span>
+            </p>
+          </div>
+          <div class="player">
+            <div class="player-custom"></div>
+            <audio class="player-native" src="./audio/onemorebeforebedokay.m4a" type="audio/mp4" preload="none" controls controlsList="nodownload noplaybackrate"></audio>
+          </div>
+        </div>
+      </div>
+
+      <div class="track reveal">
+        <div class="track-art"><img src="./images/beyondthesky.png" alt="" loading="lazy"></div>
+        <div class="track-body">
+          <div class="track-head">
+            <h3 class="track-title">Beyond the Sky</h3>
+            <p class="track-links"><span>5 Jan 2025</span></p>
+          </div>
+          <div class="player">
+            <div class="player-custom"></div>
+            <audio class="player-native" src="./audio/beyondthesky.m4a" type="audio/mp4" preload="none" controls controlsList="nodownload noplaybackrate"></audio>
+          </div>
+        </div>
+      </div>
+
+      <div class="track reveal">
+        <div class="track-art"><img src="./images/sCover.jpg" alt="" loading="lazy"></div>
+        <div class="track-body">
+          <div class="track-head">
+            <h3 class="track-title">Sandstone</h3>
+            <p class="track-links"><span>12 Apr 2024</span></p>
+          </div>
+          <div class="player">
+            <div class="player-custom"></div>
+            <audio class="player-native" src="./audio/sandstone.m4a" type="audio/mp4" preload="none" controls controlsList="nodownload noplaybackrate"></audio>
+          </div>
+        </div>
+      </div>
+
+      <div class="track reveal">
+        <div class="track-art"><img src="./images/wCover.png" alt="" loading="lazy"></div>
+        <div class="track-body">
+          <div class="track-head">
+            <h3 class="track-title">Wrens</h3>
+            <p class="track-links"><span>10 Jan 2024</span></p>
+          </div>
+          <div class="player">
+            <div class="player-custom"></div>
+            <audio class="player-native" src="./audio/wrens.m4a" type="audio/mp4" preload="none" controls controlsList="nodownload noplaybackrate"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <button class="footer-mark" type="button" aria-label="Back to top">
+      TELiiK
+    </button>
+    <span class="footer-seal seal" aria-hidden="true"></span>
+    <p class="footer-meta">&copy; 2026 Andrew Kuharski</p>
+  </footer>
+</body>
+</html>

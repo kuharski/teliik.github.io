@@ -4,286 +4,194 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inspiration</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <meta name="description" content="The records and books behind the work of Andrew Kuharski, writing as TELiiK.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/seal-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/seal-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/seal-16.png">
   <link rel="manifest" href="/images/site.webmanifest">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#000000">
-  <link rel="shortcut icon" href="/images/favicon.ico">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-config" content="/images/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
-  <script src="scripts/header.js" defer></script>
-  <script src="scripts/footer.js" defer></script>
-  <script src="https://kit.fontawesome.com/6708aff63b.js" crossorigin="anonymous" defer></script>
-  <link rel="stylesheet" href="styles/header.css">
-  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#173F6D">
+  <link rel="shortcut icon" href="/images/seal-32.png">
+  <meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12141A" media="(prefers-color-scheme: dark)">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("teliik-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/inspiration.css">
+
+  <script src="scripts/site.js" defer></script>
 </head>
+
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <a href="./" class="nav-logo">
-        <div class="title">
-          <span style="--i:1">T</span>
-          <span style="--i:2">E</span>
-          <span style="--i:3">L</span>
-          <span style="--i:4">i</span>
-          <span style="--i:5">i</span>
-          <span style="--i:6">K</span> 
-        </div>    
-      </a>
-      <ul class="nav-list">
-          <li class="nav-item">
-            <a href="./music" class="nav-link">MUSIC</a>
-          </li>
-          <li class="nav-item">
-              <a href="./writing" class="nav-link">WRITING</a>
-          </li>
-          <li class="nav-item">
-              <a href="./inspiration" class="nav-link">INSPIRATION</a>
-          </li>
-      </ul>
-      <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-      </div>
-    </nav>
+  <header class="nav">
+    <a href="./" class="nav-mark">TELiiK</a>
+    <div class="nav-right">
+      <nav class="nav-links" id="nav-links" aria-label="Main">
+        <a href="./music">Music</a>
+        <a href="./stories">Stories</a>
+        <a href="./poems">Poems</a>
+        <a href="./inspiration" aria-current="page">Inspiration</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">
+        <span class="theme-dot" aria-hidden="true"></span>
+        <span class="theme-words" aria-hidden="true"><span class="theme-word theme-word--dark">Dark</span><span class="theme-word theme-word--light">Light</span></span>
+      </button>
+      <button class="nav-burger" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+        <i></i><i></i>
+      </button>
+    </div>
   </header>
-  <main style="flex-grow: 1;">
-    <section>
-      <div class="remark">
-        <h1 class="remark-text">
-          MUSIC
-        </h1>
+
+  <div class="spine" aria-hidden="true"><span>Inspiration</span></div>
+
+  <main>
+    <section class="masthead wrap">
+      <p class="eyebrow">Art that inspires me</p>
+      <div class="masthead-title">
+        <h1>Inspiration</h1>
+        <p class="masthead-end"><span class="seal seal--lg" aria-hidden="true"></span></p>
       </div>
-      <div class="album-book-container">
-        <div class="album-book-grid">
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/ys/204051949" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/ys.webp">
-            </a>
-            <h2>
-              Ys
-            </h2>
-            <p>
-              Joanna Newsom &#183; 2006
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/shiver/1518015266" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/shiver.jpg">
-            </a>
-            <h2>
-              Shiver
-            </h2>
-            <p>
-              J&#243;nsi &#183; 2020
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/stranger-in-the-alps/1256607808" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/stranger-in-the-alps.jpg">
-            </a>
-            <h2>
-              Stranger in the Alps
-            </h2>
-            <p>
-              Phoebe Bridgers &#183; 2017
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/prospekts-march-ep/1122792846" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/prospekts-march.jpg">
-            </a>
-            <h2>
-              Prospekt's March - EP
-            </h2>
-            <p>
-              Coldplay &#183; 2008
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/%C3%A1tta/1688702511" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/atta.jpg">
-            </a>
-            <h2>
-              &#192;TTA
-            </h2>
-            <p>
-              Sigur R&#243;s &#183; 2023
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/kid-a/1097862870" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/kid-a.jpg">
-            </a>
-            <h2>
-              Kid A
-            </h2>
-            <p>
-              Radiohead &#183; 2000
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/innerspeaker/1439752048" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/innerspeaker.jpg">
-            </a>
-            <h2>
-              InnerSpeaker
-            </h2>
-            <p>
-              Tame Impala &#183; 2010
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/birthplace/1672227185" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/birthplace.jpg">
-            </a>
-            <h2>
-              Birthplace
-            </h2>
-            <p>
-              Novo Amor &#183; 2018
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/halfaxa/1738994221" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/halfaxa.jpg">
-            </a>
-            <h2>
-              Halfaxa
-            </h2>
-            <p>
-              Grimes &#183; 2010
-            </p>
-          </div>
-          <div class="album-book-card">
-            <a  href="https://music.apple.com/us/album/hypochondriac/1653651532" target="_blank" rel="noreferrer">
-              <img class="album-book-pic" src="./album-book-images/hypochondriac.png">
-            </a>
-            <h2>
-              hypochondriac
-            </h2>
-            <p>
-              brakence &#183; 2022
-            </p>
-          </div>
+    </section>
+
+
+    <section class="shelf wrap">
+      <div class="section-head">
+        <h2>Records</h2>
+        <p class="eyebrow">Ten</p>
+      </div>
+
+      <div class="shelf-grid">
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/ys.webp" alt="" loading="lazy"></div>
+          <h3 class="item-title">Ys</h3>
+          <p class="item-meta">Joanna Newsom &middot; 2006</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/shiver.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Shiver</h3>
+          <p class="item-meta">J&oacute;nsi &middot; 2020</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/stranger-in-the-alps.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Stranger in the Alps</h3>
+          <p class="item-meta">Phoebe Bridgers &middot; 2017</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/prospekts-march.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Prospekt&rsquo;s March</h3>
+          <p class="item-meta">Coldplay &middot; 2008</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/atta.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">&Aacute;TTA</h3>
+          <p class="item-meta">Sigur R&oacute;s &middot; 2023</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/kid-a.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Kid A</h3>
+          <p class="item-meta">Radiohead &middot; 2000</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/innerspeaker.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">InnerSpeaker</h3>
+          <p class="item-meta">Tame Impala &middot; 2010</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/birthplace.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Birthplace</h3>
+          <p class="item-meta">Novo Amor &middot; 2018</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/halfaxa.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Halfaxa</h3>
+          <p class="item-meta">Grimes &middot; 2010</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/hypochondriac.png" alt="" loading="lazy"></div>
+          <h3 class="item-title">hypochondriac</h3>
+          <p class="item-meta">brakence &middot; 2022</p>
         </div>
       </div>
     </section>
-    <section>
-      <div style="display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  padding-bottom: clamp(4rem, 6vw, 18rem);">
-        <h1 class="remark-text">
-        BOOKS
-        </h1>
+
+    <section class="shelf shelf--books wrap">
+      <div class="section-head">
+        <h2>Books</h2>
+        <p class="eyebrow">Ten</p>
       </div>
-      <div class="album-book-container">
-        <div class="album-book-grid no-hover">
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/spring-snow.jpg">
-            <h2>
-              Spring Snow
-            </h2>
-            <p>
-              By Yukio Mishima &#183; 1969
-            </p>
-          </div>
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/snowcountry.png">
-            <h2>
-              Snow Country
-            </h2>
-            <p>
-              By Yasunari Kawabata &#183; 1948
-            </p>
-          </div>
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/naomi.png">
-            <h2>
-              Naomi
-            </h2>
-            <p>
-              By Jun'ichirō Tanizaki &#183; 1925
-            </p>
-          </div>
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/runaway-horses.jpg">
-            <h2>
-              Runaway Horses
-            </h2>
-            <p>
-              By Yukio Mishima &#183; 1969
-            </p>
-          </div>
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/tswffgwts.png">
-            <h2>
-              The Sailor Who Fell from Grace with the Sea
-            </h2>
-            <p>
-              By Yukio Mishima &#183; 1963
-            </p>
-          </div>
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/womanindunes.png">
-            <h2>
-              The Woman in the Dunes
-            </h2>
-            <p>
-              By Kōbō Abe &#183; 1962
-            </p>
-          </div>
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/soundofwaves.png">
-            <h2>
-              The Sound of Waves
-            </h2>
-            <p>
-              By Yukio Mishima &#183; 1954
-            </p>
-          </div>
-          <div class="album-book-card">
-              <img class="album-book-pic" src="./album-book-images/completefairytales.jpg">
-            <h2>
-              Complete Fairy Tales of Oscar Wilde
-            </h2>
-            <p>
-              By Oscar Wilde &#183; 1891
-            </p>
-          </div>
+
+      <div class="shelf-grid">
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/spring-snow.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Spring Snow</h3>
+          <p class="item-meta">Yukio Mishima</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/soundofwaves.png" alt="" loading="lazy"></div>
+          <h3 class="item-title">The Sound of Waves</h3>
+          <p class="item-meta">Yukio Mishima</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/naomi.png" alt="" loading="lazy"></div>
+          <h3 class="item-title">Naomi</h3>
+          <p class="item-meta">Jun&rsquo;ichir&#333; Tanizaki</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/runaway-horses.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Runaway Horses</h3>
+          <p class="item-meta">Yukio Mishima</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/snowcountry.png" alt="" loading="lazy"></div>
+          <h3 class="item-title">Snow Country</h3>
+          <p class="item-meta">Yasunari Kawabata</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/womanindunes.png" alt="" loading="lazy"></div>
+          <h3 class="item-title">The Woman in the Dunes</h3>
+          <p class="item-meta">K&#333;b&#333; Abe</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/tswffgwts.png" alt="" loading="lazy"></div>
+          <h3 class="item-title">The Sailor Who Fell from Grace with the Sea</h3>
+          <p class="item-meta">Yukio Mishima</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/dorian-gray.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">The Picture of Dorian Gray</h3>
+          <p class="item-meta">Oscar Wilde</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/tomats.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">The Old Man and the Sea</h3>
+          <p class="item-meta">Ernest Hemingway</p>
+        </div>
+        <div class="item reveal">
+          <div class="item-art"><img src="./album-book-images/completefairytales.jpg" alt="" loading="lazy"></div>
+          <h3 class="item-title">Complete Fairy Tales</h3>
+          <p class="item-meta">Oscar Wilde</p>
         </div>
       </div>
     </section>
   </main>
-  <footer>
-    <div class="footer-icons">
-      <a href="https://www.instagram.com/andrewkuharski/" target="_blank" rel="noreferrer">
-        <i class="fa-brands fa-instagram fa-fw" style="color: #000000; transition: 0.3s; font-size: 2.7rem;"></i>
-      </a>
-      <img class="two-footer" src="./images/22FA.png">
-      <a href="https://open.spotify.com/artist/4HuOKZWRAAiEM58F3AivnS?si=sZNmsXobSdCxWiwDuWc8qQ">
-        <i class="fa-brands fa-spotify fa-fw" style="color: #000000; transition: 0.3s; font-size: 2.7rem;"></i>
-      </a>
-    </div>
-    <div class="footer-name">
-      <div class="footer-scroll">
-        <span style="--i:1">T</span>
-        <span style="--i:2">E</span>
-        <span style="--i:3">L</span>
-        <span style="--i:4">i</span>
-        <span style="--i:5">i</span>
-        <span style="--i:6">K</span>
-      </div>
-    </div>
-    <div class="copyright-notice">
-      <p>&#169; 2026 ANDREW KUHARSKI</p>
-    </div>
+
+  <footer class="footer">
+    <button class="footer-mark" type="button" aria-label="Back to top">
+      TELiiK
+    </button>
+    <span class="footer-seal seal" aria-hidden="true"></span>
+    <p class="footer-meta">&copy; 2026 Andrew Kuharski</p>
   </footer>
 </body>
 </html>
