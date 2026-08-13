@@ -5,7 +5,7 @@
    ========================================================================== */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 
   /* ---- raw palette ----
      One accent, taken from the wax seal itself: sumi ink, washi, seal navy. */
@@ -13,17 +13,21 @@
   --sumi:  #1A1A1A;
   --seal:  #173F6D;
 
-  /* ---- semantic: light ---- */
-  --bg:        var(--washi);
-  --bg-sunk:   #F2EEE5;
-  --fg:        var(--sumi);
-  --fg-muted:  #6B665D;
-  --fg-faint:  #9C978D;
-  --rule:      rgba(26, 26, 26, 0.14);
-  --rule-soft: rgba(26, 26, 26, 0.07);
-  --accent:    var(--seal);
-  --link:      var(--seal);
-  --link-hover:#0E2A4A;
+  /* ---- semantic: DARK is the site's default ----
+     Not neutral black: the ground carries an indigo cast so the palette
+     stays one family across both themes. The visitor's system setting is
+     deliberately not consulted — only their own choice, stored below. */
+  --bg:        #12141A;
+  --bg-sunk:   #171A22;
+  --fg:        #E9E5DC;
+  --fg-muted:  #A19C92;
+  --fg-faint:  #6F6B64;
+  --rule:      rgba(233, 229, 220, 0.16);
+  --rule-soft: rgba(233, 229, 220, 0.08);
+  /* seal navy is far too dark on this ground: same hue, lifted to read */
+  --accent:    #5C8DC9;
+  --link:      #5C8DC9;
+  --link-hover:#8FB4E0;
 
   /* ---- type ---- */
   --font-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", "Songti SC", "Noto Serif SC", Georgia, serif;
@@ -61,37 +65,19 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-/* ---- semantic: dark ----
-   Not neutral black: the ground carries an indigo cast so the palette
-   stays one family across both themes. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:        #12141A;
-    --bg-sunk:   #171A22;
-    --fg:        #E9E5DC;
-    --fg-muted:  #A19C92;
-    --fg-faint:  #6F6B64;
-    --rule:      rgba(233, 229, 220, 0.16);
-    --rule-soft: rgba(233, 229, 220, 0.08);
-    /* seal navy is far too dark on this ground: same hue, lifted to read */
-    --accent:    #5C8DC9;
-    --link:      #5C8DC9;
-    --link-hover:#8FB4E0;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg:        #12141A;
-  --bg-sunk:   #171A22;
-  --fg:        #E9E5DC;
-  --fg-muted:  #A19C92;
-  --fg-faint:  #6F6B64;
-  --rule:      rgba(233, 229, 220, 0.16);
-  --rule-soft: rgba(233, 229, 220, 0.08);
-  /* seal navy is far too dark on this ground: same hue, lifted to read */
-  --accent:    #5C8DC9;
-  --link:      #5C8DC9;
-  --link-hover:#8FB4E0;
+/* ---- semantic: light, only when the visitor asks for it ---- */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg:        var(--washi);
+  --bg-sunk:   #F2EEE5;
+  --fg:        var(--sumi);
+  --fg-muted:  #6B665D;
+  --fg-faint:  #9C978D;
+  --rule:      rgba(26, 26, 26, 0.14);
+  --rule-soft: rgba(26, 26, 26, 0.07);
+  --accent:    var(--seal);
+  --link:      var(--seal);
+  --link-hover:#0E2A4A;
 }
 
 /* ==========================================================================
@@ -161,11 +147,10 @@ a:hover { color: var(--link-hover); }
 }
 .seal--lg { width: 6rem; height: 6rem; }
 
-/* the wax is dark navy and sinks into the dark ground without a lift */
-:root[data-theme="dark"] .seal { filter: brightness(1.8) saturate(1.05); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .seal { filter: brightness(1.8) saturate(1.05); }
-}
+/* the wax is dark navy and sinks into the dark ground without a lift; on the
+   light ground it needs none, so light undoes it rather than dark adding it */
+.seal { filter: brightness(1.8) saturate(1.05); }
+:root[data-theme="light"] .seal { filter: none; }
 
 .eyebrow {
   font-family: var(--font-mono);
@@ -436,14 +421,12 @@ a:hover { color: var(--link-hover); }
 }
 
 /* Which word shows is decided in CSS, not JS, so it is already correct on the
-   first paint — the script is deferred and would flash the wrong word. */
-.theme-word--light { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-word--dark { display: none; }
-  :root:not([data-theme="light"]) .theme-word--light { display: inline; }
-}
-:root[data-theme="dark"] .theme-word--dark { display: none; }
-:root[data-theme="dark"] .theme-word--light { display: inline; }
+   first paint — the script is deferred and would flash the wrong word.
+   Dark is the default, so "Light" is what the toggle offers by default. */
+.theme-word--dark { display: none; }
+.theme-word--light { display: inline; }
+:root[data-theme="light"] .theme-word--dark { display: inline; }
+:root[data-theme="light"] .theme-word--light { display: none; }
 
 /* hamburger */
 .nav-burger {

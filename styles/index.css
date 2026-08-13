@@ -46,10 +46,8 @@
 
 /* the wax is dark navy and sinks into the dark ground without a lift —
    the same treatment .seal gets in base.css */
-:root[data-theme="dark"] .hero-img { filter: brightness(1.8) saturate(1.05); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .hero-img { filter: brightness(1.8) saturate(1.05); }
-}
+.hero-img { filter: brightness(1.8) saturate(1.05); }
+:root[data-theme="light"] .hero-img { filter: none; }
 
 .hero-caption {
   width: 100%;
@@ -104,20 +102,8 @@ a.feature:hover .feature-media img,
 a.feature:focus-visible .feature-media img { filter: none; transform: scale(1.04); }
 
 /* white-ground artwork glares against the dark ink, so hold it back at rest */
-:root[data-theme="dark"] .feature-media img {
-  filter: grayscale(1) contrast(1.03) brightness(0.82);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .feature-media img {
-    filter: grayscale(1) contrast(1.03) brightness(0.82);
-  }
-}
-:root[data-theme="dark"] a.feature:hover .feature-media img,
-:root[data-theme="dark"] a.feature:focus-visible .feature-media img { filter: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) a.feature:hover .feature-media img,
-  :root:not([data-theme="light"]) a.feature:focus-visible .feature-media img { filter: none; }
-}
+.feature-media img { filter: grayscale(1) contrast(1.03) brightness(0.82); }
+:root[data-theme="light"] .feature-media img { filter: grayscale(1) contrast(1.03); }
 
 .feature-label {
   display: flex;

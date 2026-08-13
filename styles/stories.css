@@ -11,13 +11,19 @@
    tighter gutter and a wider ceiling, so each page carries ~65 characters
    rather than ~48. Justified text needs the width or the word gaps gape. */
 .book-wrap {
-  --gutter: clamp(2rem, 4vw, 9rem);
   max-width: 178rem;
   padding-bottom: clamp(6rem, 12vh, 14rem);
   display: grid;
   grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
   gap: clamp(2.4rem, 3.5vw, 5.6rem);
   align-items: start;
+}
+
+/* The book claws back gutter to widen the page — but only where there is
+   width to claw. On a phone it keeps the site's normal gutter so the rail
+   lines up with the masthead above it. */
+@media (min-width: 701px) {
+  .book-wrap { --gutter: clamp(2rem, 4vw, 9rem); }
 }
 
 /* ---- the rail: same vocabulary as .poem-rail, but it tracks the book ---- */
@@ -60,6 +66,10 @@
 
 /* the story you are actually in */
 .book-rail .book-jump[aria-current="true"] { color: var(--accent); }
+
+/* The date rides on the story's own title, right-aligned — phone only. On
+   desktop the rail's Date field already tracks whichever story is open. */
+.story-when { display: none; }
 
 /* ---- the book ---------------------------------------------------------- */
 
@@ -302,10 +312,34 @@
     align-items: baseline;
     gap: var(--s-1) var(--s-3);
   }
-  .book-rail dt { margin-top: 0; }
+  /* the label takes a whole row, so the titles flow horizontally beneath it
+     instead of trailing off the end of the first line */
+  .book-rail dt {
+    margin-top: 0;
+    flex: 0 0 100%;
+  }
 
-  /* the open story's date means nothing once it is all one scroll */
+  /* the open story's date means nothing once it is all one scroll — the
+     date sits on each story's own title instead */
   .rail-date { display: none; }
+
+  .story-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-2);
+  }
+  .story-when {
+    display: block;
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: var(--t-xs);
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+    white-space: nowrap;
+  }
 
   .book-viewport {
     overflow: visible;

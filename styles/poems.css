@@ -197,12 +197,14 @@
   .poem,
   .colophon { grid-template-columns: 1fr; }
 
+  /* Collection and Date stay stacked as label-over-value pairs. Run as a
+     wrapping row they read as one long string and break at the screen edge. */
   .poem-rail {
     position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--s-1) var(--s-3);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
   }
-  .poem-rail dd { margin-bottom: 0; }
+  .poem-rail dd { margin-bottom: var(--s-2); }
+  .poem-rail dd:last-child { margin-bottom: 0; }
 }

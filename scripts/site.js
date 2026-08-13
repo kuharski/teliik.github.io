@@ -7,34 +7,32 @@
   "use strict";
 
   /* ---- theme ----------------------------------------------------------
-     The stored preference wins; otherwise we follow the system and keep
-     following it as it changes. */
+     Dark is the site's default, set in the CSS itself. The system setting is
+     not consulted at all — only the visitor's own choice, which persists. */
   var root = document.documentElement;
-  var media = window.matchMedia("(prefers-color-scheme: dark)");
+  var BAR = { dark: "#12141A", light: "#FAF7F0" };
 
   function currentTheme() {
-    return root.getAttribute("data-theme") || (media.matches ? "dark" : "light");
+    return root.getAttribute("data-theme") === "light" ? "light" : "dark";
   }
 
-  function labelToggle(btn) {
-    var next = currentTheme() === "dark" ? "light" : "dark";
-    btn.setAttribute("aria-label", "Switch to " + next + " theme");
+  function reflect(btn, theme) {
+    var next = theme === "dark" ? "light" : "dark";
+    if (btn) btn.setAttribute("aria-label", "Switch to " + next + " theme");
+    // keep the mobile browser chrome in step with the page
+    var bar = document.querySelector('meta[name="theme-color"]');
+    if (bar) bar.setAttribute("content", BAR[theme]);
   }
 
   var toggle = document.querySelector(".theme-toggle");
+  reflect(toggle, currentTheme());
+
   if (toggle) {
-    labelToggle(toggle);
     toggle.addEventListener("click", function () {
       var next = currentTheme() === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
       try { localStorage.setItem("teliik-theme", next); } catch (e) {}
-      labelToggle(toggle);
-    });
-
-    media.addEventListener("change", function () {
-      var stored = null;
-      try { stored = localStorage.getItem("teliik-theme"); } catch (e) {}
-      if (!stored) labelToggle(toggle);
+      reflect(toggle, next);
     });
   }
 
