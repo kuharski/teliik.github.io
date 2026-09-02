@@ -16,10 +16,19 @@
 
   <script>
     (function () {
-      // Dark is the default; only the visitor's own stored choice overrides it.
+      // The system setting decides, on every visit, until the visitor presses
+      // the toggle — from then on their stored choice is the only thing read.
       var t = null;
       try { t = localStorage.getItem("teliik-theme"); } catch (e) {}
-      document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+      // set here as well, or the phone's browser chrome flashes the wrong
+      // colour in the gap before the deferred site.js runs
+      var bar = document.querySelector('meta[name="theme-color"]');
+      if (bar) bar.setAttribute("content", t === "light" ? "#FAF7F0" : "#12141A");
       // flagged here rather than in player.js so the native controls never flash
       document.documentElement.className += " js";
     })();

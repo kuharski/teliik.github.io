@@ -7,8 +7,10 @@
   "use strict";
 
   /* ---- theme ----------------------------------------------------------
-     Dark is the site's default, set in the CSS itself. The system setting is
-     not consulted at all — only the visitor's own choice, which persists. */
+     The system setting decides on its own, every visit, until the visitor
+     presses the toggle; that choice is stored and from then on it is the only
+     thing consulted. Resolved in each page's head, before first paint — this
+     file only handles the pressing and the colour of the browser chrome. */
   var root = document.documentElement;
   var BAR = { dark: "#12141A", light: "#FAF7F0" };
 
