@@ -8,13 +8,17 @@
    itself lives in base.css.
    ========================================================================== */
 
+/* the film frame downstream sizes itself off this, so it is a token, not a
+   literal: the two must stay identical or the page loses its centre line */
+:root { --release-gap: clamp(3.5rem, 5vw, 9rem); }
+
 .release {
   padding-top: 0;              /* the masthead's own padding is the only gap */
   padding-bottom: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(3.5rem, 5vw, 9rem);
+  gap: var(--release-gap);
 }
 
 .release-art { display: flex; flex-direction: column; gap: var(--s-3); }
@@ -271,6 +275,112 @@
 .js .player-native { display: none; }
 html:not(.js) .player-custom { display: none; }
 
+/* ==========================================================================
+   the film — one square video, centred, sized to the album cover opposite.
+   It sits after the player rules on purpose: the controls here are the same
+   JS-built row, restyled as an overlay, and the overrides must win.
+   ========================================================================== */
+
+.film {
+  padding-top: clamp(4rem, 8vh, 9rem);
+  padding-bottom: 0;
+}
+
+.film-frame {
+  position: relative;
+  width: calc((100% - var(--release-gap)) / 2);   /* == the cover, at any width */
+  margin: clamp(3rem, 5vh, 5rem) auto 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--bg-sunk);
+  box-shadow: 0 0 0 1px var(--rule-soft) inset;
+}
+
+.film-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- the overlay ---------------------------------------------------------
+   These controls sit on the video's own frames, not on the page ground, so
+   they carry fixed light values in both themes: a token that reads in dark
+   mode would vanish against a bright frame. The one colour kept is the
+   accent, lifted to a tint that survives on either. */
+
+.film-frame {
+  --film-ink:   rgba(255, 255, 255, 0.94);
+  --film-scrim: rgba(12, 14, 18, 0.45);
+  --film-hair:  rgba(255, 255, 255, 0.32);
+}
+
+.film-frame .player-custom {
+  position: absolute;
+  inset: 0;
+  max-width: none;
+  align-items: flex-end;                          /* scrub + time ride the sill */
+  gap: var(--s-2);
+  padding: clamp(1.4rem, 2vw, 2.2rem);
+}
+
+/* the toggle leaves the flex row entirely and takes the centre of the frame */
+.film-frame .player-toggle {
+  --size: clamp(5.6rem, 7vw, 8rem);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--film-scrim);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: var(--film-ink);
+  transition: opacity 0.4s var(--ease), border-color 0.3s var(--ease),
+              color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+/* the accent is the page's colour, but this button sits on the video's own
+   frames — and this one is mostly cyan, which swallows it. Hover brightens
+   the scrim instead: the one move that reads against any footage. */
+.film-frame .player-toggle:hover {
+  background: rgba(12, 14, 18, 0.68);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+.film-frame .player-toggle svg { width: 1.8rem; height: 1.8rem; }
+
+.film-frame.is-playing .player-toggle .icon-play { display: none; }
+.film-frame.is-playing .player-toggle .icon-pause { display: block; }
+
+/* same reasoning as the button: the progress hairline is white on a shadow,
+   not accent, so it survives a bright frame as well as a dark one */
+.film-frame .player-scrub::before {
+  background: var(--film-hair);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.film-frame .player-fill,
+.film-frame .player-fill::after { background: var(--film-ink); }
+.film-frame .player-fill { box-shadow: 0 0 3px rgba(0, 0, 0, 0.45); }
+.film-frame.is-playing .player-fill::after { transform: translateY(-50%) scale(1); }
+
+.film-frame .player-time {
+  color: var(--film-ink);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- what shows when ------------------------------------------------------
+   Faded, never hidden: the scrub has to stay hit-testable and reachable by
+   keyboard even while it is invisible, so opacity does the work. */
+
+.film-frame .player-scrub,
+.film-frame .player-time {
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.film-frame:hover .player-scrub,
+.film-frame:hover .player-time,
+.film-frame:focus-within .player-scrub,
+.film-frame:focus-within .player-time { opacity: 1; }
+
+/* once it is running the video is the whole event — the button gets out of
+   the way and comes back the moment a cursor or a focus ring asks for it */
+.film-frame.is-playing .player-toggle { opacity: 0; }
+.film-frame.is-playing:hover .player-toggle,
+.film-frame.is-playing:focus-within .player-toggle { opacity: 1; }
+
 /* the window slides under the artwork, same breakpoint as the index hero */
 @media (max-width: 900px) {
   .release {
@@ -278,6 +388,7 @@ html:not(.js) .player-custom { display: none; }
     gap: clamp(3rem, 6vh, 5rem);
   }
   .release-art img { max-width: 46rem; }
+  .film-frame { width: 100%; max-width: 46rem; }
   .showcase { padding-inline: 0; }
 }
 

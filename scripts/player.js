@@ -1,5 +1,6 @@
 /* ==========================================================================
-   Music — replaces the native audio controls with a hairline player.
+   Music — replaces the native media controls with a hairline player. Drives the
+   demo audio and the film frame alike, so the two never talk over each other.
    Progressive enhancement: the markup ships with working native controls
    and this only takes over once it has run. Playing one track stops the rest.
    ========================================================================== */
@@ -7,7 +8,7 @@
 (function () {
   "use strict";
 
-  var tracks = document.querySelectorAll(".track");
+  var tracks = document.querySelectorAll(".track, .film-frame");
   if (!tracks.length) return;
 
   document.documentElement.classList.add("js");
@@ -25,14 +26,15 @@
   var players = [];
 
   Array.prototype.forEach.call(tracks, function (track) {
-    var audio = track.querySelector("audio");
+    var audio = track.querySelector("audio, video");
     var mount = track.querySelector(".player-custom");
     if (!audio || !mount) return;
 
     audio.removeAttribute("controls");
     audio.preload = "metadata";
 
-    var name = (track.querySelector(".track-title") || {}).textContent || "track";
+    var name = track.getAttribute("data-title") ||
+      (track.querySelector(".track-title") || {}).textContent || "track";
     name = name.trim();
 
     mount.innerHTML =
