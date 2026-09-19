@@ -12,6 +12,13 @@
    literal: the two must stay identical or the page loses its centre line */
 :root { --release-gap: clamp(3.5rem, 5vw, 9rem); }
 
+/* The caption hangs below the cover, so the art column is taller than the
+   picture and its centre line sits lower — which drags the window opposite
+   down with it, since the window is centred on the column, not on the art.
+   This is that block: the flex gap plus the one line of eyebrow that sits
+   in it, used below to give the window an identical tail. */
+:root { --release-caption: calc(var(--s-3) + 1.4 * var(--t-xs)); }
+
 .release {
   padding-top: 0;              /* the masthead's own padding is the only gap */
   padding-bottom: 0;
@@ -36,6 +43,12 @@
   gap: var(--s-2);
 }
 .release-caption .rule { flex: 0 0 clamp(3rem, 6vw, 7rem); }
+
+/* Hang the caption's height under the window too. Both columns then read as
+   "content, then the same tail", so centring the boxes centres the cover and
+   the window on each other — at any width, and whichever of the two is the
+   taller one driving the row. */
+.release .showcase { margin-bottom: var(--release-caption); }
 
 /* Nothing in this window is a single destination, so it must not behave like
    a link: the title stays put and only the two platform links respond. */
@@ -276,9 +289,10 @@
 html:not(.js) .player-custom { display: none; }
 
 /* ==========================================================================
-   the film — one square video, centred, sized to the album cover opposite.
-   It sits after the player rules on purpose: the controls here are the same
-   JS-built row, restyled as an overlay, and the overrides must win.
+   the film — one square video with the words opposite, on the release's own
+   two-column measure. It sits after the player rules on purpose: the
+   controls here are the same JS-built row, restyled as an overlay, and the
+   overrides must win.
    ========================================================================== */
 
 .film {
@@ -286,10 +300,26 @@ html:not(.js) .player-custom { display: none; }
   padding-bottom: 0;
 }
 
+/* The release's grid, repeated exactly — same columns, same token gap — so
+   the video lands on the album cover's width and the page keeps one spine.
+   Both columns are minmax(0, 1fr): equal by construction, which is what
+   holds the words to the film's width and never past it. */
+.film-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--release-gap);
+}
+
+/* Side by side the words lead and the film answers, but stacked the film has
+   to come first — so the video stays first in the source (the phone's order)
+   and only the wide layout places them. */
+.lyric      { grid-column: 1; grid-row: 1; }
+.film-frame { grid-column: 2; grid-row: 1; }
+
 .film-frame {
   position: relative;
-  width: calc((100% - var(--release-gap)) / 2);   /* == the cover, at any width */
-  margin: clamp(3rem, 5vh, 5rem) auto 0;
+  width: 100%;                     /* the column is already the cover's width */
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 2px;
@@ -381,6 +411,91 @@ html:not(.js) .player-custom { display: none; }
 .film-frame.is-playing:hover .player-toggle,
 .film-frame.is-playing:focus-within .player-toggle { opacity: 1; }
 
+/* ==========================================================================
+   the lyric — the same crop-marked window as the release, but the words are
+   the whole content, so they are centred in it rather than set to a measure.
+   ========================================================================== */
+
+/* Everything in this window is measured off the column it stands in, never
+   off the page. Side by side that column is about 40% of the viewport, so a
+   vw clamp tracks it closely — which is the point: the words have a fixed
+   number of lines, so unless their leading, their air and the seal all come
+   down with the column, the window keeps its height while the film opposite
+   shrinks, and by the last stop before stacking it stands half again as
+   tall. The stacked column is capped instead of fluid, so the same tokens
+   are re-set at that breakpoint. */
+.lyric {
+  --lyric-size: clamp(1.6rem, 1.5vw, 2.1rem);   /* a step under --t-md */
+  --lyric-air:  clamp(1.2rem, 1.9vw, 2.4rem);
+  --lyric-lead: 1.75;
+  gap: var(--lyric-air);
+  padding: var(--lyric-air) clamp(1.6rem, 2.4vw, 3.2rem);
+  max-width: 100%;
+  text-align: center;
+}
+
+/* the head keeps the release window's two-mark row: it is the only thing in
+   here that is furniture, and it stays flush so the marks have something to
+   hang from */
+.lyric .showcase-head { text-align: left; }
+
+.lyric-body {
+  display: flex;
+  flex-direction: column;
+  padding-block: calc(var(--lyric-air) * 0.5);
+}
+
+/* a sung line, not prose: never justified, never hyphenated, and balanced so
+   a narrow column breaks it somewhere the ear would */
+.lyric-stanza {
+  font-family: var(--font-body);
+  font-size: var(--lyric-size);
+  line-height: var(--lyric-lead);
+  text-wrap: balance;
+  color: var(--fg);
+}
+.lyric-stanza + .lyric-stanza { margin-top: 1.45em; }
+
+/* the last line stands alone in the song, so it is given its own air and a
+   short rule above it — the turn, drawn rather than said */
+.lyric-stanza--coda {
+  margin-top: 1.6em;
+  padding-top: 1.6em;
+  position: relative;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+.lyric-stanza--coda::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(4rem, 6vw, 7rem);
+  height: 1px;
+  background: var(--rule);
+}
+
+/* the seal closes the words the way it closes a poem — centred here, with
+   the hairline running out to both margins */
+.lyric-end {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+/* the seal comes down with everything else, or it alone holds the box open */
+.lyric-end .seal {
+  width: clamp(4rem, 4.4vw, 6rem);
+  height: clamp(4rem, 4.4vw, 6rem);
+}
+.lyric-end::before,
+.lyric-end::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--rule);
+}
+
 /* the window slides under the artwork, same breakpoint as the index hero */
 @media (max-width: 900px) {
   .release {
@@ -388,8 +503,38 @@ html:not(.js) .player-custom { display: none; }
     gap: clamp(3rem, 6vh, 5rem);
   }
   .release-art img { max-width: 46rem; }
-  .film-frame { width: 100%; max-width: 46rem; }
   .showcase { padding-inline: 0; }
+
+  /* stacked there is nothing to centre against, and the tail would only
+     read as a hole between the window and the section below */
+  .release .showcase { margin-bottom: 0; }
+
+  /* one column: the video is first in the source, so it lands above the
+     words the moment the explicit placement is dropped */
+  .film-layout {
+    grid-template-columns: 1fr;
+    gap: clamp(3rem, 6vh, 5rem);
+    justify-items: center;
+  }
+  .lyric,
+  .film-frame { grid-column: auto; grid-row: auto; }
+
+  /* the same cap on both, so the window still cannot outrun the film */
+  .film-frame,
+  .lyric { width: 100%; max-width: 46rem; }
+
+  /* the release window can go flush to the gutter because its text is
+     flush-left; centred words need the marks held off them */
+  .lyric { padding-inline: clamp(1.6rem, 5vw, 3.2rem); }
+
+  /* stacked, the column is capped at 46rem rather than tracking the
+     viewport, so the vw tokens above would bottom out — re-set to the
+     phone's own scale, where height costs nothing */
+  .lyric {
+    --lyric-size: clamp(1.7rem, 4.4vw, 1.95rem);
+    --lyric-air:  clamp(1.6rem, 4vw, 2.4rem);
+  }
+  .lyric-end .seal { width: clamp(4.4rem, 12vw, 6rem); height: clamp(4.4rem, 12vw, 6rem); }
 }
 
 @media (max-width: 700px) {
@@ -399,4 +544,8 @@ html:not(.js) .player-custom { display: none; }
 @media (max-width: 640px) {
   .track { grid-template-columns: 1fr; gap: var(--s-3); }
   .track-art { max-width: 18rem; }
+
+  /* a phone column is about four words wide, so the air around the coda
+     closes up rather than the line wrapping */
+  .lyric-stanza--coda { margin-top: 1.3em; padding-top: 1.3em; }
 }

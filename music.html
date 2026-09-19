@@ -114,19 +114,39 @@
       </div>
     </section>
 
-    <section class="film wrap">
-      <div class="section-head">
-        <h2>In Your Grace Video</h2>
-      </div>
+    <section class="film wrap" aria-label="In Your Grace">
+      <div class="film-layout">
+        <div class="film-frame reveal" data-title="In Your Grace">
+          <video class="film-video"
+                 src="./images/inyourgrace.mp4"
+                 poster="./images/inyourgrace.png"
+                 width="800" height="800"
+                 preload="none" playsinline controls
+                 controlsList="nodownload noplaybackrate"></video>
+          <div class="player-custom"></div>
+        </div>
 
-      <div class="film-frame reveal" data-title="In Your Grace">
-        <video class="film-video"
-               src="./images/inyourgrace.mp4"
-               poster="./images/inyourgrace.png"
-               width="800" height="800"
-               preload="none" playsinline controls
-               controlsList="nodownload noplaybackrate"></video>
-        <div class="player-custom"></div>
+        <div class="lyric showcase reveal">
+          <span class="showcase-marks" aria-hidden="true"></span>
+          <div class="showcase-head">
+            <span class="eyebrow label">In Your Grace</span>
+            <span class="eyebrow">Lyrics</span>
+          </div>
+
+          <div class="lyric-body">
+            <p class="lyric-stanza">oh the times, oh the times<br>
+              the times that i&rsquo;ve wept<br>
+              wept in your grace</p>
+
+            <p class="lyric-stanza">and the lies, oh the lies<br>
+              the lies that i&rsquo;ve faced<br>
+              faced in your grace</p>
+
+            <p class="lyric-stanza lyric-stanza--coda">i don&rsquo;t have time to waste</p>
+          </div>
+
+          <p class="lyric-end"><span class="seal seal--lg" aria-hidden="true"></span></p>
+        </div>
       </div>
     </section>
 
