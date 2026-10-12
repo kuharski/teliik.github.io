@@ -298,6 +298,8 @@ html:not(.js) .player-custom { display: none; }
 .film {
   padding-top: clamp(4rem, 8vh, 9rem);
   padding-bottom: 0;
+  /* index.html links straight to #in-your-grace — clear the fixed nav */
+  scroll-margin-top: calc(var(--nav-h) + 1.6rem);
 }
 
 /* The release's grid, repeated exactly — same columns, same token gap — so
