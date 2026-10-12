@@ -1,4 +1,176 @@
 /* ==========================================================================
+   the feature — a shape poem, where the typesetting is the poem. The lake
+   in the left column and the crop-marked window opposite: the pairing
+   music.html gives the release. The window itself lives in base.css.
+   ========================================================================== */
+
+/* The window holds a block of verse that cannot be narrowed, so the poem is
+   given the elastic column and the photograph a measured one — a plate, not
+   a half of the page. Below the breakpoint there is no width to divide and
+   the two stack instead. */
+.feature {
+  padding-top: 0;
+  padding-bottom: clamp(6rem, 12vh, 14rem);
+  display: grid;
+  grid-template-columns: minmax(0, clamp(20rem, 22vw, 38rem)) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(3.5rem, 5vw, 9rem);
+}
+
+.feature-art { display: flex; flex-direction: column; gap: var(--s-3); }
+
+.feature-art img {
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--rule-soft) inset;
+}
+
+.feature-caption { display: flex; align-items: center; gap: var(--s-2); }
+.feature-caption .rule { flex: 0 0 clamp(3rem, 6vw, 7rem); }
+
+/* Beside the poem the picture is not a square that happens to sit there: it
+   takes the column, and the water is cropped to whatever height the poem
+   turns out to be. The lake answers the poem's height exactly, so there is
+   no leftover air above and below it to explain away. */
+@media (min-width: 1151px) {
+  .feature-art img {
+    flex: 1 1 0;
+    min-height: 0;
+    object-fit: cover;
+    /* off-centre by just enough to keep the moon, which a centred crop of a
+       column this narrow clips off the right edge */
+    object-position: 62% 50%;
+  }
+}
+
+/* the window is not a destination, so it must not answer like a link */
+.feature .showcase:hover .showcase-title { color: var(--fg); }
+
+/* index.html links straight to #racing-on-lake-superior — clear the nav, the
+   same allowance the poems below the fold are given */
+.feature .showcase { scroll-margin-top: calc(var(--nav-h) + 1.6rem); }
+
+/* The seal punctuates the title instead of closing the poem: set on the
+   baseline, where a full stop goes, and measured in em so it tracks the type
+   at every size rather than needing a size of its own. */
+.feature .showcase-title .seal {
+  width: 0.86em;
+  height: 0.86em;
+  margin-left: 0.3em;
+  /* On the baseline it rides above the words, because the title is all
+     lower case and there is nothing up there to balance it. Shippori's
+     x-height is 0.485em, so its middle is 0.2425em up; dropping the seal by
+     the difference centres it on the letters themselves. */
+  vertical-align: -0.188em;
+}
+
+/* Punctuation does not wrap away from the word it punctuates. Narrow enough
+   and the title breaks, so the seal is tied to the last word and goes down
+   with it rather than being left stranded on a line of its own. */
+.feature .showcase-title .title-end { white-space: nowrap; }
+
+/* ---- the shape ----------------------------------------------------------
+   The line breaks, the centring and the two widths of gap are the poem, not
+   styling laid over it: rewrap this and it is a different poem. So nothing
+   here reflows. The type scales with its column instead, down to the floor
+   the rest of the page's verse already sits at, and no further.
+   ------------------------------------------------------------------------ */
+
+.shape-frame {
+  container-type: inline-size;
+  /* wide enough that the dissolve is read as distance rather than as a cut:
+     two or three letters, not one. The shape is padded by the same amount,
+     so while the poem still fits the fade has only margin to work on. */
+  --shape-bleed: clamp(2.4rem, 3.6cqi, 4rem);
+  margin-block: var(--s-2);
+}
+
+.shape {
+  /* max-content keeps every line whole; min-width keeps the box filling the
+     window while it still fits, so the centring has its frame to centre in */
+  width: max-content;
+  min-width: 100%;
+  padding-inline: var(--shape-bleed);
+  font-family: var(--font-body);
+  font-size: clamp(1.65rem, 2.6cqi, 2.1rem);
+  /* set so the block keeps the typescript's proportion — the longest line
+     runs a little under one and a half times the height of the whole poem */
+  line-height: 1.58;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--fg);
+}
+
+/* The gaps are lifted off the typescript, where they come in exactly two
+   widths, the second twice the first, the narrower running an eighth of the
+   longest line. Held in em so they scale with the type and the shape
+   survives every size the column gives it. */
+.tab { display: inline-block; width: 2.8em; }
+.tab--wide { width: 5.6em; }
+
+/* ---- bleed --------------------------------------------------------------
+   Under the floor the poem is simply wider than the window holding it. In
+   print that is bleed — art run past the trim rather than set to fit — and
+   the crop marks already say this window is a trim. So the lines are faded
+   off at the two edges rather than cut by them: the poem recedes out of
+   frame the way the shore recedes in it. What is left to drag is the site's
+   own hairline, not the browser's furniture.
+   ------------------------------------------------------------------------ */
+
+.shape-scroll {
+  /* eased rather than linear: a straight ramp still reads as an edge, and
+     what this wants to look like is haze */
+  --shape-haze: linear-gradient(to right,
+    transparent 0,
+    rgba(0, 0, 0, 0.12) calc(var(--shape-bleed) * 0.34),
+    rgba(0, 0, 0, 0.68) calc(var(--shape-bleed) * 0.72),
+    #000 var(--shape-bleed),
+    #000 calc(100% - var(--shape-bleed)),
+    rgba(0, 0, 0, 0.68) calc(100% - var(--shape-bleed) * 0.72),
+    rgba(0, 0, 0, 0.12) calc(100% - var(--shape-bleed) * 0.34),
+    transparent 100%);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-mask-image: var(--shape-haze);
+          mask-image: var(--shape-haze);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.shape-scroll::-webkit-scrollbar { height: 2px; }
+.shape-scroll::-webkit-scrollbar-track { background: var(--rule-soft); }
+.shape-scroll::-webkit-scrollbar-thumb { background: var(--accent); }
+
+/* The poem sets the breakpoint, not the page: two columns last exactly as
+   long as the narrower of them can still hold the longest line at a size
+   worth reading. Past that the photograph goes above and the poem takes the
+   whole measure, which buys it several hundred more pixels before any of it
+   has to run past the trim. */
+@media (max-width: 1150px) {
+  .feature {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2.8rem, 5vh, 4.4rem);
+  }
+
+  /* Stacked, the picture turns the other way: a row running the poem's full
+     bounds, horizon through the middle. Its height is the width the column
+     had beside the poem, so the same measure governs both arrangements —
+     turned on its side, it is the same picture.
+
+     aspect-ratio asks for a square and max-height caps it, so the height is
+     whichever of the two is smaller. Wide, that is the cap and the picture
+     is a band; as the screen narrows the band is squeezed in from the sides
+     until width meets the cap and it has become the square again. */
+  .feature-art img {
+    aspect-ratio: 1 / 1;
+    max-height: 38rem;
+    object-fit: cover;
+    object-position: center 50%;
+  }
+}
+
+/* ==========================================================================
    Writing — verse gets the whole page. No cards, no containers.
    ========================================================================== */
 
@@ -185,6 +357,7 @@
    scrolling rather than breathing room */
 @media (max-width: 700px) {
   .verse { padding-bottom: 0; }
+  .feature { padding-bottom: clamp(3.5rem, 6vh, 6rem); }
   .poem { padding-block: clamp(3.5rem, 6vh, 6rem); }
   .stories { padding-block: clamp(3.5rem, 6vh, 6rem); }
   .colophon { padding-top: clamp(3.5rem, 6vh, 6rem); padding-bottom: 0; }
@@ -196,6 +369,7 @@
 @media (max-width: 900px) {
   .poem,
   .colophon { grid-template-columns: 1fr; }
+
 
   /* Collection and Date stay stacked as label-over-value pairs. Run as a
      wrapping row they read as one long string and break at the screen edge. */
