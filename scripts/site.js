@@ -104,6 +104,62 @@
     Array.prototype.forEach.call(targets, function (el) { io.observe(el); });
   }
 
+  /* ---- verse fits the screen ----------------------------------------
+     On a phone a wrapped line reads as one the poet never wrote. Hold every
+     line whole, then scale the poem's type down until its longest line fits.
+     One size per poem, so its stanzas stay matched. Below MIN_PX the type
+     would be unreadable, so the poem is let go and wraps as before. */
+  var poems = document.querySelectorAll(".poem-body");
+  var narrow = window.matchMedia("(max-width: 620px)");
+  var MIN_PX = 12;
+
+  function fitPoem(body) {
+    body.style.removeProperty("--fit");
+    body.classList.remove("is-fitted");
+    if (!narrow.matches) return;
+
+    var stanzas = body.querySelectorAll(".stanza");
+    if (!stanzas.length) return;
+
+    body.classList.add("is-fitted");
+    var base = parseFloat(getComputedStyle(stanzas[0]).fontSize);
+    var ratio = 1;
+    Array.prototype.forEach.call(stanzas, function (s) {
+      if (s.scrollWidth > s.clientWidth) {
+        ratio = Math.min(ratio, s.clientWidth / s.scrollWidth);
+      }
+    });
+    if (ratio === 1) return;
+
+    // a hair under the exact fit, so rounding never tips a line over
+    var size = Math.floor(base * ratio * 0.98 * 10) / 10;
+    if (size < MIN_PX) {
+      body.classList.remove("is-fitted");
+      return;
+    }
+    body.style.setProperty("--fit", size + "px");
+  }
+
+  function fitAll() {
+    Array.prototype.forEach.call(poems, fitPoem);
+  }
+
+  if (poems.length) {
+    fitAll();
+    // the webfont changes every line's width once it lands
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+
+    // only refit when the width changes, not when a phone's URL bar slides
+    var lastW = window.innerWidth;
+    var fitTimer;
+    window.addEventListener("resize", function () {
+      if (window.innerWidth === lastW) return;
+      lastW = window.innerWidth;
+      clearTimeout(fitTimer);
+      fitTimer = setTimeout(fitAll, 120);
+    });
+  }
+
   /* ---- footer wordmark scrolls home ---------------------------------- */
   var footMark = document.querySelector(".footer-mark");
   if (footMark) {

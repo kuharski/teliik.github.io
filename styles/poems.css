@@ -215,7 +215,7 @@
   margin-bottom: var(--s-2);
 }
 
-.poem-body { max-width: 56ch; }
+.poem-body { max-width: 56ch; min-width: 0; }
 
 .poem-title {
   font-family: var(--font-display);
@@ -351,6 +351,14 @@
 @media (max-width: 620px) {
   .stanza { font-size: 1.65rem; line-height: 1.85; }
   .poem-title { font-size: clamp(2.8rem, 8vw, 4rem); }
+
+  /* Poems with longer lines still won't fit at that size, so site.js holds
+     each line whole and shrinks the poem's type until its longest line fits.
+     Gated on the class so verse still wraps if the script never runs. */
+  .poem-body.is-fitted .stanza {
+    white-space: nowrap;
+    font-size: var(--fit, 1.65rem);
+  }
 }
 
 /* on a phone the poems stack, so the field of space between them becomes
